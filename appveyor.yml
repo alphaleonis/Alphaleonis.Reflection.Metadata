@@ -1,0 +1,49 @@
+image: Visual Studio 2017
+configuration: Release
+
+environment:
+   semVersion: 0.1.0
+
+init:
+- ps: $env:buildVersion = "$env:semVersion.$env:APPVEYOR_BUILD_NUMBER"
+- ps: $env:nugetVersionSuffix = @{ $false = "dev-{0:00000}" -f [convert]::ToInt32("0" + $env:APPVEYOR_BUILD_NUMBER, 10); $true = "beta" }[ $env:APPVEYOR_REPO_BRANCH -eq "master" ]
+- ps: 'Write-Host "buildVersion: $($env:buildVersion)"'
+- ps: 'Write-Host "nugetVersionSuffix: $($env:nugetVersionSuffix)"'
+- ps: Update-AppveyorBuild -Version $env:buildVersion
+- cmd: dotnet --version
+
+dotnet_csproj:
+   patch: false
+
+nuget:
+  account_feed: false
+  project_feed: false
+  disable_publish_on_pr: false
+
+install:
+- cmd: dotnet restore src --verbosity m
+
+build_script:
+- ps: 'dotnet build src -p:Version="$($env:buildVersion)" -p:AssemblyVersion="$($env:semVersion).0" -p:FileVersion=$env:buildVersion'
+
+test_script:
+- cmd: dotnet test --no-build src\Alphaleonis.Reflection.Metadata.Tests -v m -l xunit
+- ps: |
+    $wc = New-Object 'System.Net.WebClient'
+    $wc.UploadFile("https://ci.appveyor.com/api/testresults/xunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\src\Alphaleonis.Reflection.Metadata.Tests\TestResults\TestResults.xml))
+    
+after_test:
+- ps: 'dotnet pack src\Alphaleonis.Reflection.Metadata --version-suffix "$($env:nugetVersionSuffix)" --no-restore --no-build -p:VersionPrefix="$($env:semVersion)"'
+
+artifacts:
+- path: '**\*.nupkg'
+  name: nuget-package
+
+# Deploy on appveyor feed
+deploy:
+   - provider: NuGet
+     server: https://ci.appveyor.com/nuget/alphaleonis-rsgpyjhi2c6t/api/v2/package
+     api_key:
+        secure: PnuQGphn/9gGaVZRnUejvcijO8H5cJyoYPAekBvC4n8=
+     skip_symbols: true
+     artifact: /.*\.nupkg/

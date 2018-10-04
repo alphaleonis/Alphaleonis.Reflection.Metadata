@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>d:\Coding\Projects\GitHub\Alphaleonis.Reflection.Metadata\src\Alphaleonis.Reflection.Metadata\Alphaleonis.Reflection.Metadata.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>d:\Coding\Projects\GitHub\Alphaleonis.Reflection.Metadata\src\Alphaleonis.Reflection.Metadata\Alphaleonis.Reflection.Metadata.xml</DocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
