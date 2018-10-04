@@ -6,21 +6,23 @@ using System.Text;
 
 namespace Alphaleonis.Reflection.Metadata
 {
+   /// <summary>Describes the unique identity of a <see cref="System.Type" /> in full.</summary>
    [Serializable]
    public class TypeIdentifier
    {
       #region Private Fields
 
-      private NamespaceTypeNameEntry m_namespaceTypeName;
+      private List<string> m_nestedTypeName;
 
       #endregion
 
       #region Construction 
 
-      private TypeIdentifier(NamespaceTypeNameEntry namespaceTypeName, IList<TypeSpecifier> typeSpecifiers, IList<TypeIdentifier> genericArguments, AssemblyName assemblyName)
+      private TypeIdentifier(string namespaceName, List<string> nestedTypeName, IList<TypeSpecifier> typeSpecifiers, IList<TypeIdentifier> genericArguments, AssemblyName assemblyName)
       {
          TypeSpecifiers = typeSpecifiers ?? new List<TypeSpecifier>();
-         m_namespaceTypeName = namespaceTypeName;
+         Namespace = namespaceName;
+         m_nestedTypeName = nestedTypeName;
          GenericArguments = genericArguments;
          AssemblyName = assemblyName;
       }
@@ -30,7 +32,8 @@ namespace Alphaleonis.Reflection.Metadata
          TypeSpecifiers = new List<TypeSpecifier>(other.TypeSpecifiers);
          GenericArguments = CloneGenericArguments(other.GenericArguments);
          AssemblyName = other.AssemblyName;
-         m_namespaceTypeName = other.m_namespaceTypeName;
+         Namespace = other.Namespace;
+         m_nestedTypeName = new List<string>(other.m_nestedTypeName);
 
       }
 
@@ -43,40 +46,58 @@ namespace Alphaleonis.Reflection.Metadata
 
       #region Properties
 
+      /// <summary>Gets or sets the assembly name in which this type resides. This may be <see langword="null"/> if no 
+      ///          assembly name was provided.</summary>
       public AssemblyName AssemblyName { get; set; }
 
-      public IList<TypeSpecifier> TypeSpecifiers { get; }
+      /// <summary>Gets or sets the specifiers indicating whether this type is an array, pointer or reference type.</summary>
+      public IList<TypeSpecifier> TypeSpecifiers { get; private set; }
 
-      public string Namespace
-      {
-         get => m_namespaceTypeName.NamespaceSpec;
+      /// <summary>Gets or sets the namespace of the type. May be <see langword="null"/> if the type is not contained within a namespace.</summary>      
+      public string Namespace { get; set; }
 
-         set
-         {
-            m_namespaceTypeName = new NamespaceTypeNameEntry(value, m_namespaceTypeName.NestedTypeName);
-         }
-      }
-
-
-      // My.Namespace.Specifier.Root+Nested+Sub
+      /// <summary>
+      /// Gets or sets the namespace and type name, without any array/pointer/reference specifiers or
+      /// generic arguments. For example the
+      /// <see cref="NamespaceTypeName" /> of the type
+      /// <c>System.Collections.Generic.Dictionary`2+KeyCollection[System.String,System.Int32][,]</c>
+      /// is <c>System.Collections.Generic.Dictionary`2+KeyCollection</c>.
+      /// </summary>
+      /// <exception cref="ArgumentNullException">Thrown when one or more required arguments are null.</exception>
+      /// <exception cref="ArgumentException">Thrown when one or more arguments have unsupported or
+      /// illegal values.</exception>
+      /// <value>The name of the namespace type.</value>
       public string NamespaceTypeName
       {
          get
          {
-            if (String.IsNullOrEmpty(m_namespaceTypeName.NamespaceSpec))
-               return m_namespaceTypeName.NestedTypeName.FirstOrDefault();
+            StringBuilder result = new StringBuilder();
+            if (!String.IsNullOrEmpty(Namespace))
+            {
+               result.Append(Namespace);
+               result.Append('.');
+            }
 
-            return $"{m_namespaceTypeName.NamespaceSpec}.{String.Join("+", m_namespaceTypeName.NestedTypeName)}";
+            result.Append(String.Join("+", m_nestedTypeName));
+            return result.ToString();
          }
 
          set
          {
-            if (string.IsNullOrEmpty(value))
-               throw new ArgumentException($"{nameof(value)} is null or empty.", nameof(value));
-            m_namespaceTypeName = ParseNamespaceTypeName(new CharReader(value), false);
+            if (value == null)
+               throw new ArgumentNullException(nameof(value));
+
+            if (value.Length == 0)
+               throw new ArgumentException($"{nameof(value)} is empty.", nameof(value));
+
+            (Namespace, m_nestedTypeName) = ParseNamespaceTypeName(new CharReader(value), false);
          }
       }
 
+      /// <summary>Gets or sets the full assembly qualified name of the type.</summary>
+      /// <exception cref="ArgumentNullException">Thrown when one or more required arguments are null.</exception>
+      /// <exception cref="ArgumentException">Thrown when one or more arguments have unsupported or
+      /// illegal values.</exception>
       public string AssemblyQualifiedName
       {
          get
@@ -94,28 +115,26 @@ namespace Alphaleonis.Reflection.Metadata
 
          set
          {
-            if (string.IsNullOrEmpty(value))
-               throw new ArgumentException($"{nameof(value)} is null or empty.", nameof(value));
+            if (value == null)
+               throw new ArgumentNullException(nameof(value));
 
-            var other = Parse(value);
-            m_namespaceTypeName = other.m_namespaceTypeName;
-            GenericArguments.Clear();
-            for (int i = 0; i < other.GenericArguments.Count; i++)
-            {
-               GenericArguments.Add(other.GenericArguments[i]);
-            }
+            if (value.Length == 0)
+               throw new ArgumentException($"{nameof(value)} is empty.", nameof(value));
 
-            TypeSpecifiers.Clear();
-            for (int i = 0; i < other.TypeSpecifiers.Count; i++)
-            {
-               TypeSpecifiers.Add(other.TypeSpecifiers[i]);
-            }
+            (Namespace, m_nestedTypeName, GenericArguments, TypeSpecifiers, AssemblyName) = ParseAssemblyQualifiedName(new CharReader(value), false);
          }
       }
 
-      public IList<TypeIdentifier> GenericArguments { get; }
+      /// <summary>Gets a list containing the generic arguments of this type, or an empty list if no generic arguments are available.</summary>      
+      public IList<TypeIdentifier> GenericArguments { get; private set; }
 
-      // My.Namespace.Specifier.Root+Nested+Sub[,]*
+      /// <summary>
+      /// Gets or sets the full name of the type. This is equivalent to
+      /// <see cref="System.Type.FullName"/>.
+      /// </summary>
+      /// <exception cref="ArgumentNullException">Thrown when one or more required arguments are null.</exception>
+      /// <exception cref="ArgumentException">Thrown when one or more arguments have unsupported or
+      /// illegal values.</exception>
       public string FullName
       {
          get
@@ -127,73 +146,87 @@ namespace Alphaleonis.Reflection.Metadata
 
          set
          {
-            if (string.IsNullOrEmpty(value))
-               throw new ArgumentException($"{nameof(value)} is null or empty.", nameof(value));
+            if (value == null)
+               throw new ArgumentNullException(nameof(value));
 
-            
-            CharReader reader = new CharReader(value);
-            var other = Parse(reader, false);
-            m_namespaceTypeName = other.m_namespaceTypeName;
-            GenericArguments.Clear();
-            for (int i = 0; i < other.GenericArguments.Count; i++)
-            {
-               GenericArguments.Add(other.GenericArguments[i]);
-            }
+            if (value.Length == 0)
+               throw new ArgumentException($"{nameof(value)} is empty.", nameof(value));
 
-            TypeSpecifiers.Clear();
-            for (int i = 0; i < other.TypeSpecifiers.Count; i++)
-            {
-               TypeSpecifiers.Add(other.TypeSpecifiers[i]);
-            }
+            (Namespace, m_nestedTypeName, GenericArguments, TypeSpecifiers) = ParseFullName(new CharReader(value), false);
          }
       }
 
+      /// <summary>
+      /// Gets or sets the simple name of the type <b>without</b> any array/pointer/byref specs.
+      /// </summary>
+      /// <remarks>
+      /// This is different from <see cref="MemberInfo.Name"/> that does include the array/pointer/byRef
+      /// specifiers.
+      /// </remarks>
+      /// <exception cref="ArgumentNullException">Thrown when one or more required arguments are null.</exception>
+      /// <exception cref="ArgumentException">Thrown when one or more arguments have unsupported or
+      /// illegal values.</exception>
+      /// <value>The name.</value>
       public string Name
       {
          get
          {
-            return m_namespaceTypeName.NestedTypeName.LastOrDefault();
+            return m_nestedTypeName.LastOrDefault();
          }
 
          set
          {
-            if (string.IsNullOrEmpty(value))
-               throw new ArgumentException($"{nameof(value)} is null or empty.", nameof(value));
+            if (value == null)
+               throw new ArgumentNullException(nameof(value));
 
-            m_namespaceTypeName = new NamespaceTypeNameEntry(m_namespaceTypeName.NamespaceSpec, m_namespaceTypeName.NestedTypeName.Take(m_namespaceTypeName.NestedTypeName.Count - 1).Concat(new [] { value }).ToList());
+            if (value.Length == 0)
+               throw new ArgumentException($"{nameof(value)} is empty.", nameof(value));
+
+            m_nestedTypeName[m_nestedTypeName.Count - 1] = value;
          }
       }
 
+      /// <summary>Returns true if this type is an array.</summary>
       public bool IsArray => TypeSpecifiers.Count > 0 && TypeSpecifiers[TypeSpecifiers.Count - 1].Kind == TypeSpecifierKind.Array;
 
+      /// <summary>Returns true if this type is a pointer.</summary>
       public bool IsPointer => TypeSpecifiers.Count > 0 && TypeSpecifiers[TypeSpecifiers.Count - 1].Kind == TypeSpecifierKind.Pointer;
 
+      /// <summary>Returns true if this type is a reference.</summary>
       public bool IsReference => TypeSpecifiers.Count > 0 && TypeSpecifiers[TypeSpecifiers.Count - 1].Kind == TypeSpecifierKind.Reference;
 
       #endregion
 
       #region Public Methods
 
+      /// <summary>Gets element type of this type if this type is an array, pointer or reference. Returns <see langword="null"/> otherwise.</summary>
       public TypeIdentifier GetElementType()
       {
          if (TypeSpecifiers.Count == 0)
             return null;
 
-         return new TypeIdentifier(m_namespaceTypeName, TypeSpecifiers.Take(TypeSpecifiers.Count - 1).ToList(), GenericArguments.Select(arg => new TypeIdentifier(arg)).ToList(), AssemblyName);
+         return new TypeIdentifier(Namespace, new List<string>(m_nestedTypeName), TypeSpecifiers.Take(TypeSpecifiers.Count - 1).ToList(), CloneGenericArguments(GenericArguments), AssemblyName);
       }
 
+      /// <summary>Gets declaring type of this type if this type is a nested type, or returns <see langword="null"/> otherwise.</summary>
       public TypeIdentifier GetDeclaringType()
       {
-         if (m_namespaceTypeName.NestedTypeName.Count <= 1)
+         if (m_nestedTypeName.Count <= 1)
             return null;
 
-         return new TypeIdentifier(new NamespaceTypeNameEntry(m_namespaceTypeName.NamespaceSpec, m_namespaceTypeName.NestedTypeName.Take(m_namespaceTypeName.NestedTypeName.Count - 1).ToList()), TypeSpecifiers, CloneGenericArguments(GenericArguments), AssemblyName);
+         return new TypeIdentifier(Namespace, m_nestedTypeName.GetRange(0, m_nestedTypeName.Count - 1), TypeSpecifiers, CloneGenericArguments(GenericArguments), AssemblyName);
       }
 
       #endregion
 
       #region Static Methods
 
+      /// <summary>Parses a type name. This may be an assembly qualified name, a full type name or a simple type name.</summary>
+      /// <exception cref="ArgumentNullException">Thrown when one or more required arguments are null.</exception>
+      /// <exception cref="ArgumentException">Thrown when one or more arguments have unsupported or
+      /// illegal values.</exception>
+      /// <param name="typeName">The type name to parse</param>
+      /// <returns>A new TypeIdentifier representing the specified type.</returns>
       public static TypeIdentifier Parse(string typeName)
       {
          if (typeName == null)
@@ -202,7 +235,8 @@ namespace Alphaleonis.Reflection.Metadata
          if (typeName.Length == 0)
             throw new ArgumentException($"{nameof(typeName)} must not be empty.", nameof(typeName));
 
-         return Parse(new CharReader(typeName), true);
+
+         return ParseTypeIdentifier(new CharReader(typeName), true);
       }
 
       #endregion
@@ -222,9 +256,11 @@ namespace Alphaleonis.Reflection.Metadata
                if (i > 0)
                   result.Append(',');
 
-               result.Append('[');
+               if (GenericArguments[i].AssemblyName != null)
+                  result.Append('[');
                result.Append(GenericArguments[i].AssemblyQualifiedName);
-               result.Append(']');
+               if (GenericArguments[i].AssemblyName != null)
+                  result.Append(']');
             }
 
 
@@ -240,10 +276,23 @@ namespace Alphaleonis.Reflection.Metadata
          }
       }
 
-
-      private static TypeIdentifier Parse(CharReader reader, bool fullyQualified)
+      private static TypeIdentifier ParseTypeIdentifier(CharReader reader, bool fullyQualified)
       {
-         var result = ParseNamespaceTypeName(reader, true);
+         if (fullyQualified)
+         {
+            var aqn = ParseAssemblyQualifiedName(reader, true);
+            return new TypeIdentifier(aqn.Namespace, aqn.NestedTypeName, aqn.Specifiers, aqn.GenericArguments, aqn.AssemblyName);
+         }
+         else
+         {
+            var fn = ParseFullName(reader, true);
+            return new TypeIdentifier(fn.Namespace, fn.NestedTypeName, fn.Specifiers, fn.GenericArguments, null);
+         }
+      }
+
+      private static (string Namespace, List<string> NestedTypeName, IList<TypeIdentifier> GenericArguments, IList<TypeSpecifier> Specifiers) ParseFullName(CharReader reader, bool allowTrailingCharacters)
+      {
+         var namespaceTypeName = ParseNamespaceTypeName(reader, true);
 
          IList<TypeIdentifier> genericArguments;
          int la1 = reader.Peek(1);
@@ -254,16 +303,28 @@ namespace Alphaleonis.Reflection.Metadata
 
          IList<TypeSpecifier> spec = ParseRefPtrArrSpec(reader);
 
+         if (!allowTrailingCharacters && reader.HasMore)
+            throw new TypeNameParserException($"Invalid type name \"{reader.Data}\"; Unexpected character '{(char)reader.Peek()}' at position {reader.Position}; expected end-of-string.");
+
+         return (namespaceTypeName.Namespace, namespaceTypeName.NestedTypeName, genericArguments, spec);
+      }
+
+      private static (string Namespace, List<string> NestedTypeName, IList<TypeIdentifier> GenericArguments, IList<TypeSpecifier> Specifiers, AssemblyName AssemblyName) ParseAssemblyQualifiedName(CharReader reader, bool allowTrailingCharacters)
+      {
+         var fullName = ParseFullName(reader, true);
+
          AssemblyName assemblyName = null;
-         if (fullyQualified && reader.Peek() == ',')
+         if (reader.Peek() == ',')
          {
             reader.Read();
             SkipWhitespace(reader);
             assemblyName = ParseAssemblyName(reader);
          }
-         // TODO PP (2018-10-03): Allow trailing?
 
-         return new TypeIdentifier(result, spec, genericArguments, assemblyName);
+         if (!allowTrailingCharacters && reader.HasMore)
+            throw new TypeNameParserException($"Invalid type name \"{reader.Data}\"; Unexpected character '{(char)reader.Peek()}' at position {reader.Position}; expected end-of-string.");
+
+         return (fullName.Namespace, fullName.NestedTypeName, fullName.GenericArguments, fullName.Specifiers, assemblyName);
       }
 
       private static AssemblyName ParseAssemblyName(CharReader reader)
@@ -393,7 +454,7 @@ namespace Alphaleonis.Reflection.Metadata
                   reader.Read();
                }
 
-               args.Add(Parse(reader, fullyQualified));
+               args.Add(ParseTypeIdentifier(reader, fullyQualified));
 
 
                if (fullyQualified == true)
@@ -484,7 +545,7 @@ namespace Alphaleonis.Reflection.Metadata
       }
 
       // ID ('.' ID)* ('+' ID)*
-      private static NamespaceTypeNameEntry ParseNamespaceTypeName(CharReader reader, bool allowTrailingCharacters)
+      private static (string Namespace, List<string> NestedTypeName) ParseNamespaceTypeName(CharReader reader, bool allowTrailingCharacters)
       {
          List<string> nestedTypeName = new List<string>();
          StringBuilder namespaceBuilder = new StringBuilder();
@@ -526,7 +587,7 @@ namespace Alphaleonis.Reflection.Metadata
          if (!allowTrailingCharacters && reader.HasMore)
             throw new TypeNameParserException($"Invalid type name \"{reader.Data}\"; Unexpected character '{(char)reader.Peek()}' at position {reader.Position}; expected end-of-string.");
 
-         return new NamespaceTypeNameEntry((namespaceBuilder.Length == 0) ? null : namespaceBuilder.ToString(), nestedTypeName);
+         return ((namespaceBuilder.Length == 0) ? null : namespaceBuilder.ToString(), nestedTypeName);
       }
 
       private static IReadOnlyList<string> ParseNestedTypeName(CharReader reader)
@@ -633,19 +694,6 @@ namespace Alphaleonis.Reflection.Metadata
          }
 
          public string Data { get; }
-      }
-
-      [Serializable]
-      private struct NamespaceTypeNameEntry
-      {
-         public NamespaceTypeNameEntry(string namespaceSpec, IReadOnlyList<string> nestedTypeName)
-         {
-            NamespaceSpec = namespaceSpec;
-            NestedTypeName = nestedTypeName;
-         }
-
-         public string NamespaceSpec { get; }
-         public IReadOnlyList<string> NestedTypeName { get; }
       }
 
       #endregion
