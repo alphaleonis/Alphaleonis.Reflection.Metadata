@@ -101,7 +101,6 @@ namespace Alphaleonis.Reflection.Metadata
 
       public static MetadataTypeName FromFullName(string qualifiedName)
       {
-         TypeIdentifier identifier = new TypeIdentifier(qualifiedName);
          var splitName = SplitQualifiedName(qualifiedName);
          throw new NotImplementedException();
          // TODO PP (2018-09-30): Implement!

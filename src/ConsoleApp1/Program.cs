@@ -25,8 +25,8 @@ namespace ConsoleApp1
          value = typeof(IDictionary<string, int>).AssemblyQualifiedName;
 
          Console.WriteLine($"Input = {value}");
-         TypeName.TypeNameParser parser = new TypeName.TypeNameParser();
-         var typeName = TypeName.TypeNameParser.Parse(value);
+         TypeIdentifier.TypeNameParser parser = new TypeIdentifier.TypeNameParser();
+         var typeName = TypeIdentifier.TypeNameParser.Parse(value);
          Console.WriteLine();
          Console.WriteLine($"NamespaceName     = \"{typeName.NamespaceName}\"");
          Console.WriteLine($"NamespaceTypeName = \"{typeName.NamespaceTypeName}\"");
