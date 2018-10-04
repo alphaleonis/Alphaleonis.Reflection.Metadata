@@ -1,1 +1,1 @@
-# Alphaleonis.Reflection.Metadata
+# Alphaleonis.Reflection.Metadata [![Build status](https://img.shields.io/appveyor/ci/alphaleonis/alphaleonis-reflection-metadata.svg)](https://ci.appveyor.com/project/alphaleonis/alphaleonis-reflection-metadata) [![Test status](https://img.shields.io/appveyor/tests/alphaleonis/alphaleonis-reflection-metadata.svg)](https://ci.appveyor.com/project/alphaleonis/alphaleonis-reflection-metadata)
