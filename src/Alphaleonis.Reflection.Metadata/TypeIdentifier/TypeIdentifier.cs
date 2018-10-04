@@ -11,7 +11,7 @@ namespace Alphaleonis.Reflection.Metadata
    {
       #region Private Fields
 
-      private readonly NamespaceTypeNameEntry m_namespaceTypeName;
+      private NamespaceTypeNameEntry m_namespaceTypeName;
 
       #endregion
 
@@ -53,7 +53,7 @@ namespace Alphaleonis.Reflection.Metadata
 
          set
          {
-            throw new NotImplementedException();
+            m_namespaceTypeName = new NamespaceTypeNameEntry(value, m_namespaceTypeName.NestedTypeName);
          }
       }
 
@@ -71,7 +71,9 @@ namespace Alphaleonis.Reflection.Metadata
 
          set
          {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(value))
+               throw new ArgumentException($"{nameof(value)} is null or empty.", nameof(value));
+            m_namespaceTypeName = ParseNamespaceTypeName(new CharReader(value), false);
          }
       }
 
@@ -92,7 +94,22 @@ namespace Alphaleonis.Reflection.Metadata
 
          set
          {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(value))
+               throw new ArgumentException($"{nameof(value)} is null or empty.", nameof(value));
+
+            var other = Parse(value);
+            m_namespaceTypeName = other.m_namespaceTypeName;
+            GenericArguments.Clear();
+            for (int i = 0; i < other.GenericArguments.Count; i++)
+            {
+               GenericArguments.Add(other.GenericArguments[i]);
+            }
+
+            TypeSpecifiers.Clear();
+            for (int i = 0; i < other.TypeSpecifiers.Count; i++)
+            {
+               TypeSpecifiers.Add(other.TypeSpecifiers[i]);
+            }
          }
       }
 
@@ -110,7 +127,24 @@ namespace Alphaleonis.Reflection.Metadata
 
          set
          {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(value))
+               throw new ArgumentException($"{nameof(value)} is null or empty.", nameof(value));
+
+            
+            CharReader reader = new CharReader(value);
+            var other = Parse(reader, false);
+            m_namespaceTypeName = other.m_namespaceTypeName;
+            GenericArguments.Clear();
+            for (int i = 0; i < other.GenericArguments.Count; i++)
+            {
+               GenericArguments.Add(other.GenericArguments[i]);
+            }
+
+            TypeSpecifiers.Clear();
+            for (int i = 0; i < other.TypeSpecifiers.Count; i++)
+            {
+               TypeSpecifiers.Add(other.TypeSpecifiers[i]);
+            }
          }
       }
 
@@ -123,7 +157,10 @@ namespace Alphaleonis.Reflection.Metadata
 
          set
          {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(value))
+               throw new ArgumentException($"{nameof(value)} is null or empty.", nameof(value));
+
+            m_namespaceTypeName = new NamespaceTypeNameEntry(m_namespaceTypeName.NamespaceSpec, m_namespaceTypeName.NestedTypeName.Take(m_namespaceTypeName.NestedTypeName.Count - 1).Concat(new [] { value }).ToList());
          }
       }
 
@@ -208,12 +245,6 @@ namespace Alphaleonis.Reflection.Metadata
       {
          var result = ParseNamespaceTypeName(reader, true);
 
-         Console.WriteLine($"Namespace: \"{result.NamespaceSpec}\"");
-         for (int i = 0; i < result.NestedTypeName.Count; i++)
-         {
-            Console.WriteLine($"Nested: {result.NestedTypeName[i]}");
-         }
-
          IList<TypeIdentifier> genericArguments;
          int la1 = reader.Peek(1);
          if (reader.Peek() == '[' && la1 != ',' && la1 != '*' && la1 != ']')
@@ -222,18 +253,6 @@ namespace Alphaleonis.Reflection.Metadata
             genericArguments = new List<TypeIdentifier>();
 
          IList<TypeSpecifier> spec = ParseRefPtrArrSpec(reader);
-         if (spec == null)
-         {
-            Console.WriteLine("No Type Specifiers");
-         }
-         else
-         {
-            Console.WriteLine("Specifiers:");
-            foreach (var ss in spec)
-            {
-               Console.WriteLine(ss);
-            }
-         }
 
          AssemblyName assemblyName = null;
          if (fullyQualified && reader.Peek() == ',')

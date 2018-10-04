@@ -20,15 +20,22 @@ namespace ConsoleApp1
    {
       static void Main(string[] args)
       {
-      
-         string value = "P.Peter+Pelle`2[System.String,System.Int32]*[,,,,]&*[]";
-         value = typeof(IDictionary<string, int>).AssemblyQualifiedName;
 
-         Console.WriteLine($"Input = {value}");
-         TypeIdentifier.TypeNameParser parser = new TypeIdentifier.TypeNameParser();
-         var typeName = TypeIdentifier.TypeNameParser.Parse(value);
+         TypeIdentifier typeName = TypeIdentifier.Parse(typeof(RootClass.NestedClass.SubNestedClass).AssemblyQualifiedName);
+         Console.WriteLine("AQN:" + typeName.AssemblyQualifiedName);
+         Console.WriteLine("FN :" + typeName.FullName);
+         Console.WriteLine("NTN:" + typeName.NamespaceTypeName);
+         Console.WriteLine("NS :" + typeName.Namespace);
          Console.WriteLine();
-         Console.WriteLine($"NamespaceName     = \"{typeName.NamespaceName}\"");
+         typeName.FullName = typeof(List<int>).FullName;
+         Console.WriteLine("AQN:" + typeName.AssemblyQualifiedName);
+         Console.WriteLine("FN :" + typeName.FullName);
+         Console.WriteLine("NTN:" + typeName.NamespaceTypeName);
+         Console.WriteLine("NS :" + typeName.Namespace);
+         Console.WriteLine();
+
+         return;
+         Console.WriteLine($"NamespaceName     = \"{typeName.Namespace}\"");
          Console.WriteLine($"NamespaceTypeName = \"{typeName.NamespaceTypeName}\"");
 
          Console.WriteLine("Generic arguments:");
@@ -37,7 +44,7 @@ namespace ConsoleApp1
             Console.WriteLine(genArg.NamespaceTypeName);
          }
          Console.WriteLine();
-         Console.WriteLine($"TypeFullName: {typeName.TypeFullName}");
+         Console.WriteLine($"TypeFullName: {typeName.FullName}");
          Console.WriteLine();
          Console.WriteLine($"AQN: {typeName.AssemblyQualifiedName}");
          Console.WriteLine();
