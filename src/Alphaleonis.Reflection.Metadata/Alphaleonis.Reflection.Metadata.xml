@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alphaleonis.Reflection.Metadata</name>
+    </assembly>
+    <members>
+        <member name="T:Alphaleonis.Reflection.Metadata.StrongNameKeyPairGenerator">
+            <summary>Utility class that can be used to generate a strong name key pair (.snk) usable for signing an assembly.</summary>
+        </member>
+        <member name="M:Alphaleonis.Reflection.Metadata.StrongNameKeyPairGenerator.CreateStrongNameKeyPair(System.Int32)">
+            <summary>Creates strong name key pair.</summary>
+            <exception cref="T:System.ArgumentException">Thrown when one or more arguments have unsupported or
+            illegal values.</exception>
+            <param name="keySize">The key size. Must be between 384 and 16384 and be a multiple
+            of 8.  The default is 1024.</param>
+            <returns>A new array containing the strong name key pair.</returns>
+        </member>
+        <member name="M:Alphaleonis.Reflection.Metadata.StrongNameKeyPairGenerator.CreateStrongNameKeyFile(System.String,System.Int32)">
+            <summary>Creates strong name key pair.</summary>
+            <exception cref="T:System.ArgumentException">Thrown when one or more arguments have unsupported or
+            illegal values.</exception>
+            <param name="filePath">Full path to the file to write the strong name key pair to.</param>
+            <param name="keySize">(Optional) The key size. Must be between 384 and 16384 and be a multiple
+            of 8.  The default is 1024.</param>
+        </member>
+        <member name="T:Alphaleonis.Reflection.Metadata.TypeIdentifier">
+            <summary>Describes the unique identity of a <see cref="T:System.Type" /> in full.</summary>
+        </member>
+        <member name="P:Alphaleonis.Reflection.Metadata.TypeIdentifier.AssemblyName">
+            <summary>Gets or sets the assembly name in which this type resides. This may be <see langword="null"/> if no 
+                     assembly name was provided.</summary>
+        </member>
+        <member name="P:Alphaleonis.Reflection.Metadata.TypeIdentifier.TypeSpecifiers">
+            <summary>Gets or sets the specifiers indicating whether this type is an array, pointer or reference type.</summary>
+        </member>
+        <member name="P:Alphaleonis.Reflection.Metadata.TypeIdentifier.Namespace">
+            <summary>Gets or sets the namespace of the type. May be <see langword="null"/> if the type is not contained within a namespace.</summary>      
+        </member>
+        <member name="P:Alphaleonis.Reflection.Metadata.TypeIdentifier.NamespaceTypeName">
+            <summary>
+            Gets or sets the namespace and type name, without any array/pointer/reference specifiers or
+            generic arguments. For example the
+            <see cref="P:Alphaleonis.Reflection.Metadata.TypeIdentifier.NamespaceTypeName" /> of the type
+            <c>System.Collections.Generic.Dictionary`2+KeyCollection[System.String,System.Int32][,]</c>
+            is <c>System.Collections.Generic.Dictionary`2+KeyCollection</c>.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Thrown when one or more required arguments are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when one or more arguments have unsupported or
+            illegal values.</exception>
+            <value>The name of the namespace type.</value>
+        </member>
+        <member name="P:Alphaleonis.Reflection.Metadata.TypeIdentifier.AssemblyQualifiedName">
+            <summary>Gets or sets the full assembly qualified name of the type.</summary>
+            <exception cref="T:System.ArgumentNullException">Thrown when one or more required arguments are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when one or more arguments have unsupported or
+            illegal values.</exception>
+        </member>
+        <member name="P:Alphaleonis.Reflection.Metadata.TypeIdentifier.GenericArguments">
+            <summary>Gets a list containing the generic arguments of this type, or an empty list if no generic arguments are available.</summary>      
+        </member>
+        <member name="P:Alphaleonis.Reflection.Metadata.TypeIdentifier.FullName">
+            <summary>
+            Gets or sets the full name of the type. This is equivalent to
+            <see cref="P:System.Type.FullName"/>.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Thrown when one or more required arguments are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when one or more arguments have unsupported or
+            illegal values.</exception>
+        </member>
+        <member name="P:Alphaleonis.Reflection.Metadata.TypeIdentifier.Name">
+            <summary>
+            Gets or sets the simple name of the type <b>without</b> any array/pointer/byref specs.
+            </summary>
+            <remarks>
+            This is different from <see cref="P:System.Reflection.MemberInfo.Name"/> that does include the array/pointer/byRef
+            specifiers.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">Thrown when one or more required arguments are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when one or more arguments have unsupported or
+            illegal values.</exception>
+            <value>The name.</value>
+        </member>
+        <member name="P:Alphaleonis.Reflection.Metadata.TypeIdentifier.IsArray">
+            <summary>Returns true if this type is an array.</summary>
+        </member>
+        <member name="P:Alphaleonis.Reflection.Metadata.TypeIdentifier.IsPointer">
+            <summary>Returns true if this type is a pointer.</summary>
+        </member>
+        <member name="P:Alphaleonis.Reflection.Metadata.TypeIdentifier.IsReference">
+            <summary>Returns true if this type is a reference.</summary>
+        </member>
+        <member name="M:Alphaleonis.Reflection.Metadata.TypeIdentifier.GetElementType">
+            <summary>Gets element type of this type if this type is an array, pointer or reference. Returns <see langword="null"/> otherwise.</summary>
+        </member>
+        <member name="M:Alphaleonis.Reflection.Metadata.TypeIdentifier.GetDeclaringType">
+            <summary>Gets declaring type of this type if this type is a nested type, or returns <see langword="null"/> otherwise.</summary>
+        </member>
+        <member name="M:Alphaleonis.Reflection.Metadata.TypeIdentifier.Parse(System.String)">
+            <summary>Parses a type name. This may be an assembly qualified name, a full type name or a simple type name.</summary>
+            <exception cref="T:System.ArgumentNullException">Thrown when one or more required arguments are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when one or more arguments have unsupported or
+            illegal values.</exception>
+            <param name="typeName">The type name to parse</param>
+            <returns>A new TypeIdentifier representing the specified type.</returns>
+        </member>
+        <member name="T:Alphaleonis.Reflection.Metadata.TypeNameParserException">
+            <summary>Exception thrown when an invalid type name is parsed by a <see cref="T:Alphaleonis.Reflection.Metadata.TypeIdentifier"  /></summary>
+        </member>
+        <member name="M:Alphaleonis.Reflection.Metadata.TypeNameParserException.#ctor">
+            <summary>Default constructor.</summary>
+        </member>
+        <member name="M:Alphaleonis.Reflection.Metadata.TypeNameParserException.#ctor(System.String)">
+            <summary>Constructor.</summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Alphaleonis.Reflection.Metadata.TypeNameParserException.#ctor(System.String,System.Exception)">
+            <summary>Constructor.</summary>
+            <param name="message">The message.</param>
+            <param name="inner">The inner exception or <see langword="null"/>.</param>
+        </member>
+        <member name="M:Alphaleonis.Reflection.Metadata.TypeNameParserException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>Specialised constructor for use only by derived class.</summary>
+            <param name="info">The information.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="T:Alphaleonis.Reflection.Metadata.TypeSpecifier">
+            <summary>
+            Description of a type specifier, that indicates whether a type is an array, pointer or
+            reference.
+            </summary>
+        </member>
+        <member name="F:Alphaleonis.Reflection.Metadata.TypeSpecifier.Reference">
+            <summary>Indicates a reference specifier in a type name, i.e. '&amp;'.</summary>
+        </member>
+        <member name="F:Alphaleonis.Reflection.Metadata.TypeSpecifier.Pointer">
+            <summary>Indicates a pointer specifier in a type name, i.e. '*'.</summary>
+        </member>
+        <member name="M:Alphaleonis.Reflection.Metadata.TypeSpecifier.Array(System.Int32)">
+            <summary>Indicates an array specifier in a type name, i.e. '[]', or '[,,]' etc.</summary>
+            <param name="rank">The rank of the array. Must be greater than 0.</param>
+        </member>
+        <member name="P:Alphaleonis.Reflection.Metadata.TypeSpecifier.Kind">
+            <summary>Gets the type of this specifier.</summary>
+        </member>
+        <member name="P:Alphaleonis.Reflection.Metadata.TypeSpecifier.ArrayRank">
+            <summary>Gets the array rank if this indicates an array, or 0 otherwise.</summary>
+            <value>The array rank.</value>
+        </member>
+        <member name="M:Alphaleonis.Reflection.Metadata.TypeSpecifier.ToString">
+            <summary>Convert this object into a string representation.</summary>
+            <returns>A string that represents this object.</returns>
+        </member>
+        <member name="M:Alphaleonis.Reflection.Metadata.TypeSpecifier.Equals(Alphaleonis.Reflection.Metadata.TypeSpecifier)">
+            <summary>Tests if this TypeSpecifier is considered equal to another.</summary>
+            <param name="other">The type specifier to compare to this object.</param>
+            <returns>True if the objects are considered equal, false if they are not.</returns>
+        </member>
+        <member name="M:Alphaleonis.Reflection.Metadata.TypeSpecifier.Equals(System.Object)">
+            <summary>Tests if this object is considered equal to another.</summary>
+            <param name="obj">The object to compare to this object.</param>
+            <returns>True if the objects are considered equal, false if they are not.</returns>
+        </member>
+        <member name="M:Alphaleonis.Reflection.Metadata.TypeSpecifier.GetHashCode">
+            <summary>Calculates a hash code for this object.</summary>
+            <returns>A hash code for this object.</returns>
+        </member>
+        <member name="T:Alphaleonis.Reflection.Metadata.TypeSpecifierKind">
+            <summary>Values that represent the type of a <see cref="T:Alphaleonis.Reflection.Metadata.TypeSpecifier" /></summary>
+        </member>
+        <member name="F:Alphaleonis.Reflection.Metadata.TypeSpecifierKind.Pointer">
+            <summary>Indicates a pointer specifier (*)</summary>
+        </member>
+        <member name="F:Alphaleonis.Reflection.Metadata.TypeSpecifierKind.Reference">
+            <summary>Indicates a reference specifier (&amp;).</summary>
+        </member>
+        <member name="F:Alphaleonis.Reflection.Metadata.TypeSpecifierKind.Array">
+            <summary>Indicates an array specifier, e.g. ([], [,,]).</summary>
+        </member>
+    </members>
+</doc>

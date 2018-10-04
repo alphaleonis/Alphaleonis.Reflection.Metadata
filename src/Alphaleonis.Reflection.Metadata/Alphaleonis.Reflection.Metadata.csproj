@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>d:\Coding\Projects\GitHub\Alphaleonis.Reflection.Metadata\src\Alphaleonis.Reflection.Metadata\Alphaleonis.Reflection.Metadata.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>d:\Coding\Projects\GitHub\Alphaleonis.Reflection.Metadata\src\Alphaleonis.Reflection.Metadata\Alphaleonis.Reflection.Metadata.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Reflection.Metadata" Version="1.6.0" />
+  </ItemGroup>
+
+</Project>
