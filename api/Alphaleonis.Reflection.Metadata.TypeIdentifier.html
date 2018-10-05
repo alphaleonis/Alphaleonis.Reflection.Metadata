@@ -1,0 +1,734 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class TypeIdentifier
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class TypeIdentifier
+   ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier">
+  
+  
+  <h1 id="Alphaleonis_Reflection_Metadata_TypeIdentifier" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier" class="text-break">Class TypeIdentifier
+  </h1>
+  <div class="markdown level0 summary"><p>Describes the unique identity of a <span class="xref">System.Type</span> in full.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">TypeIdentifier</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Alphaleonis.Reflection.Metadata.html">Alphaleonis.Reflection.Metadata</a></h6>
+  <h6><strong>Assembly</strong>: Alphaleonis.Reflection.Metadata.dll</h6>
+  <h5 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class TypeIdentifier</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_AssemblyName.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.AssemblyName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L51">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_AssemblyName_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.AssemblyName*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_AssemblyName" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.AssemblyName">AssemblyName</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the assembly name in which this type resides. This may be <span class="xref">null</span> if no
+assembly name was provided.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssemblyName AssemblyName { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Reflection.AssemblyName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_AssemblyQualifiedName.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.AssemblyQualifiedName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L101">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_AssemblyQualifiedName_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.AssemblyQualifiedName*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_AssemblyQualifiedName" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.AssemblyQualifiedName">AssemblyQualifiedName</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the full assembly qualified name of the type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string AssemblyQualifiedName { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when one or more required arguments are null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when one or more arguments have unsupported or
+illegal values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_FullName.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.FullName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L138">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_FullName_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.FullName*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_FullName" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.FullName">FullName</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the full name of the type. This is equivalent to
+<span class="xref">System.Type.FullName</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string FullName { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when one or more required arguments are null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when one or more arguments have unsupported or
+illegal values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_GenericArguments.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.GenericArguments%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L129">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_GenericArguments_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.GenericArguments*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_GenericArguments" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.GenericArguments">GenericArguments</h4>
+  <div class="markdown level1 summary"><p>Gets a list containing the generic arguments of this type, or an empty list if no generic arguments are available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IList&lt;TypeIdentifier&gt; GenericArguments { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="Alphaleonis.Reflection.Metadata.TypeIdentifier.html">TypeIdentifier</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_IsArray.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.IsArray%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L190">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_IsArray_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.IsArray*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_IsArray" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.IsArray">IsArray</h4>
+  <div class="markdown level1 summary"><p>Returns true if this type is an array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsArray { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_IsPointer.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.IsPointer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L193">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_IsPointer_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.IsPointer*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_IsPointer" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.IsPointer">IsPointer</h4>
+  <div class="markdown level1 summary"><p>Returns true if this type is a pointer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsPointer { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_IsReference.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.IsReference%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L196">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_IsReference_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.IsReference*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_IsReference" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.IsReference">IsReference</h4>
+  <div class="markdown level1 summary"><p>Returns true if this type is a reference.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsReference { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_Name.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L170">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_Name_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.Name*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_Name" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.Name">Name</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the simple name of the type <strong>without</strong> any array/pointer/byref specs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_Name_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This is different from <span class="xref">System.Reflection.MemberInfo.Name</span> that does include the array/pointer/byRef
+specifiers.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when one or more required arguments are null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when one or more arguments have unsupported or
+illegal values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_Namespace.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.Namespace%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L57">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_Namespace_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.Namespace*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_Namespace" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.Namespace">Namespace</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the namespace of the type. May be <span class="xref">null</span> if the type is not contained within a namespace.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Namespace { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_NamespaceTypeName.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.NamespaceTypeName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L70">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_NamespaceTypeName_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.NamespaceTypeName*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_NamespaceTypeName" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.NamespaceTypeName">NamespaceTypeName</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the namespace and type name, without any array/pointer/reference specifiers or
+generic arguments. For example the
+<a class="xref" href="Alphaleonis.Reflection.Metadata.TypeIdentifier.html#Alphaleonis_Reflection_Metadata_TypeIdentifier_NamespaceTypeName">NamespaceTypeName</a> of the type
+<code>System.Collections.Generic.Dictionary<code>2+KeyCollection[System.String,System.Int32][,]&lt;/code&gt; is &lt;code&gt;System.Collections.Generic.Dictionary</code>2+KeyCollection</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string NamespaceTypeName { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The name of the namespace type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when one or more required arguments are null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when one or more arguments have unsupported or
+illegal values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_TypeSpecifiers.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.TypeSpecifiers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L54">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_TypeSpecifiers_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.TypeSpecifiers*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_TypeSpecifiers" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.TypeSpecifiers">TypeSpecifiers</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the specifiers indicating whether this type is an array, pointer or reference type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IList&lt;TypeSpecifier&gt; TypeSpecifiers { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="Alphaleonis.Reflection.Metadata.TypeSpecifier.html">TypeSpecifier</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_GetDeclaringType.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.GetDeclaringType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L212">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_GetDeclaringType_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.GetDeclaringType*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_GetDeclaringType" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.GetDeclaringType">GetDeclaringType()</h4>
+  <div class="markdown level1 summary"><p>Gets declaring type of this type if this type is a nested type, or returns <span class="xref">null</span> otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TypeIdentifier GetDeclaringType()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Alphaleonis.Reflection.Metadata.TypeIdentifier.html">TypeIdentifier</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_GetElementType.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.GetElementType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L203">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_GetElementType_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.GetElementType*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_GetElementType" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.GetElementType">GetElementType()</h4>
+  <div class="markdown level1 summary"><p>Gets element type of this type if this type is an array, pointer or reference. Returns <span class="xref">null</span> otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TypeIdentifier GetElementType()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Alphaleonis.Reflection.Metadata.TypeIdentifier.html">TypeIdentifier</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_Parse_System_String_.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.Parse(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L230">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_Parse_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.Parse*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_Parse_System_String_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.Parse(System.String)">Parse(String)</h4>
+  <div class="markdown level1 summary"><p>Parses a type name. This may be an assembly qualified name, a full type name or a simple type name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TypeIdentifier Parse(string typeName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">typeName</span></td>
+        <td><p>The type name to parse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Alphaleonis.Reflection.Metadata.TypeIdentifier.html">TypeIdentifier</a></td>
+        <td><p>A new TypeIdentifier representing the specified type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when one or more required arguments are null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when one or more arguments have unsupported or
+illegal values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L10" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
