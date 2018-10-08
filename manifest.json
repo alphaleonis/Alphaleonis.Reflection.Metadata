@@ -1,15 +1,96 @@
 {
   "homepages": [],
-  "source_base_path": "C:/projects/alphaleonis-reflection-metadata/docs",
+  "source_base_path": "D:/Coding/Projects/GitHub/Alphaleonis.Reflection.Metadata/docs",
   "xrefmap": "xrefmap.yml",
   "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Alphaleonis.Reflection.Metadata.StrongNameKeyPairGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Alphaleonis.Reflection.Metadata.StrongNameKeyPairGenerator.html",
+          "hash": "4kDCHBp84Kz3hPO1jwc5gw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Alphaleonis.Reflection.Metadata.TypeIdentifier.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Alphaleonis.Reflection.Metadata.TypeIdentifier.html",
+          "hash": "X2wXwCVjxJP9FITG5t7VyQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Alphaleonis.Reflection.Metadata.TypeNameParserException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Alphaleonis.Reflection.Metadata.TypeNameParserException.html",
+          "hash": "fGAw3wi/5rXOQndwRukKVQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Alphaleonis.Reflection.Metadata.TypeSpecifier.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Alphaleonis.Reflection.Metadata.TypeSpecifier.html",
+          "hash": "oEVcQCB4aJmbsce8q6iYsg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Alphaleonis.Reflection.Metadata.TypeSpecifierKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Alphaleonis.Reflection.Metadata.TypeSpecifierKind.html",
+          "hash": "GM52T25LxkY1yDANNWntnQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Alphaleonis.Reflection.Metadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Alphaleonis.Reflection.Metadata.html",
+          "hash": "z09qmcP5L6H2ITcU6lCp3Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
     {
       "type": "Conceptual",
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "8ZiBv0K1zvQcCif0eaas9A=="
+          "hash": "9FzizjuiM0pSqgPP+NX44A=="
         }
       },
       "is_incremental": false,
@@ -21,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/intro.html",
-          "hash": "A/XaQMetatAr7D+pjg6T0Q=="
+          "hash": "0H9G2qjs+jZDBRubZnFayQ=="
         }
       },
       "is_incremental": false,
@@ -33,7 +114,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/toc.html",
-          "hash": "t7iiFrmuYmrKWisdq+lN6Q=="
+          "hash": "e3tQKo0H88AvXAovFc74fA=="
         }
       },
       "is_incremental": false,
@@ -45,7 +126,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "hTmCgCs33zGvKSqJSAki2w=="
+          "hash": "84vT+9EoR9mY+YNX174cNw=="
         }
       },
       "is_incremental": false,
@@ -57,7 +138,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "FcNazzSWUZXh9bf7+1t2Aw=="
+          "hash": "3UFH1wMU7XVvTXvmzzlSvw=="
         }
       },
       "is_incremental": false,
@@ -67,8 +148,7 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
+        "can_incremental": true,
         "incrementalPhase": "build"
       },
       "processors": {
@@ -78,7 +158,11 @@
           "incrementalPhase": "build"
         },
         "ConceptualDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
           "incrementalPhase": "build"
         }
       }
@@ -86,7 +170,7 @@
     {
       "status": {
         "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
         "incrementalPhase": "postProcessing"
       },
       "processors": {}
