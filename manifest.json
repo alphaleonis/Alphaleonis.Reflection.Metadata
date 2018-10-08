@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "D:/Coding/Projects/GitHub/Alphaleonis.Reflection.Metadata/docs",
+  "source_base_path": "C:/projects/alphaleonis-reflection-metadata/docs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Alphaleonis.Reflection.Metadata.StrongNameKeyPairGenerator.html",
-          "hash": "4kDCHBp84Kz3hPO1jwc5gw=="
+          "hash": "xwygK5QVI5nTgXgjbuLf5Q=="
         }
       },
       "is_incremental": false,
@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Alphaleonis.Reflection.Metadata.TypeIdentifier.html",
-          "hash": "X2wXwCVjxJP9FITG5t7VyQ=="
+          "hash": "BIHYEPIv05zwSYzxXG3dog=="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Alphaleonis.Reflection.Metadata.TypeNameParserException.html",
-          "hash": "fGAw3wi/5rXOQndwRukKVQ=="
+          "hash": "7z82yUMkpbl3JJR4wNUOpQ=="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Alphaleonis.Reflection.Metadata.TypeSpecifier.html",
-          "hash": "oEVcQCB4aJmbsce8q6iYsg=="
+          "hash": "ygXaLNE3yfcZNmxPB0WtVA=="
         }
       },
       "is_incremental": false,
@@ -78,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Alphaleonis.Reflection.Metadata.html",
-          "hash": "z09qmcP5L6H2ITcU6lCp3Q=="
+          "hash": "NLQ9ywwFP+iTH245DYwAAA=="
         }
       },
       "is_incremental": false,
@@ -148,7 +148,8 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
         "incrementalPhase": "build"
       },
       "processors": {
@@ -157,12 +158,12 @@
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
           "incrementalPhase": "build"
         }
       }
