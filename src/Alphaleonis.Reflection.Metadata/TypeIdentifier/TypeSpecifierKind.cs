@@ -11,6 +11,7 @@ namespace Alphaleonis.Reflection.Metadata
    {
       /// <summary>Indicates a pointer specifier (*)</summary>
       Pointer,
+
       /// <summary>Indicates a reference specifier (&amp;).</summary>
       Reference,
 

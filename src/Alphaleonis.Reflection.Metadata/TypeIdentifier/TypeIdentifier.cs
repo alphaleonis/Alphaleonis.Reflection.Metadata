@@ -6,7 +6,9 @@ using System.Text;
 
 namespace Alphaleonis.Reflection.Metadata
 {
-   /// <summary>Describes the unique identity of a <see cref="System.Type" /> in full.</summary>
+   /// <summary>Representation of a .NET type name, allowing access to the individual parts of the 
+   ///          type name, both for reading and for modification.</summary>
+   /// <remarks>Use <see cref="Parse(string)"/> to create a new instance of a <see cref="TypeIdentifier" /></remarks>
    [Serializable]
    public class TypeIdentifier
    {
@@ -199,7 +201,10 @@ namespace Alphaleonis.Reflection.Metadata
 
       #region Public Methods
 
-      /// <summary>Gets element type of this type if this type is an array, pointer or reference. Returns <see langword="null"/> otherwise.</summary>
+      /// <summary>
+      /// Gets element type of this type if this type is an array, pointer or reference. Returns
+      /// <see langword="null"/> otherwise.
+      /// </summary>
       public TypeIdentifier GetElementType()
       {
          if (TypeSpecifiers.Count == 0)

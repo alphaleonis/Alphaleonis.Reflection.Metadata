@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Alphaleonis.Reflection.Metadata\Alphaleonis.Reflection.Metadata.csproj" />
+    <ProjectReference Include="..\..\src\Alphaleonis.Reflection.Metadata\Alphaleonis.Reflection.Metadata.csproj" />
   </ItemGroup>
 
 </Project>
