@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../styles/docfx.css">
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="../documentation/toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
     
     <meta property="docfx:rel" content="../">
     
@@ -83,7 +83,8 @@
   
   <h1 id="Alphaleonis_Reflection_Metadata_TypeIdentifier" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier" class="text-break">Class TypeIdentifier
   </h1>
-  <div class="markdown level0 summary"><p>Describes the unique identity of a <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a> in full.</p>
+  <div class="markdown level0 summary"><p>Representation of a .NET type name, allowing access to the individual parts of the
+type name, both for reading and for modification.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -91,16 +92,17 @@
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">TypeIdentifier</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Alphaleonis.Reflection.Metadata.TypeIdentifier.html">TypeIdentifier</a>&gt;</div>
+  </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
-    </div>
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
     </div>
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
@@ -108,28 +110,25 @@
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
     </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
-    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Alphaleonis.Reflection.Metadata.html">Alphaleonis.Reflection.Metadata</a></h6>
   <h6><strong>Assembly</strong>: Alphaleonis.Reflection.Metadata.dll</h6>
   <h5 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Serializable]
-public class TypeIdentifier</code></pre>
+public class TypeIdentifier : IEquatable&lt;TypeIdentifier&gt;</code></pre>
   </div>
+  <h5 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Use <a class="xref" href="Alphaleonis.Reflection.Metadata.TypeIdentifier.html#Alphaleonis_Reflection_Metadata_TypeIdentifier_Parse_System_String_">Parse(String)</a> to create a new instance of a <a class="xref" href="Alphaleonis.Reflection.Metadata.TypeIdentifier.html">TypeIdentifier</a></p>
+</div>
   <h3 id="properties">Properties
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_AssemblyName.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.AssemblyName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_AssemblyName.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.AssemblyName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L51">View Source</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L62">View Source</a>
   </span>
   <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_AssemblyName_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.AssemblyName*"></a>
   <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_AssemblyName" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.AssemblyName">AssemblyName</h4>
@@ -158,10 +157,10 @@ assembly name was provided.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_AssemblyQualifiedName.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.AssemblyQualifiedName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_AssemblyQualifiedName.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.AssemblyQualifiedName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L101">View Source</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L112">View Source</a>
   </span>
   <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_AssemblyQualifiedName_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.AssemblyQualifiedName*"></a>
   <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_AssemblyQualifiedName" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.AssemblyQualifiedName">AssemblyQualifiedName</h4>
@@ -211,10 +210,10 @@ illegal values.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_FullName.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.FullName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_FullName.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.FullName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L138">View Source</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L160">View Source</a>
   </span>
   <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_FullName_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.FullName*"></a>
   <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_FullName" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.FullName">FullName</h4>
@@ -265,10 +264,10 @@ illegal values.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_GenericArguments.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.GenericArguments%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_GenericArguments.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.GenericArguments%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L129">View Source</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L140">View Source</a>
   </span>
   <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_GenericArguments_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.GenericArguments*"></a>
   <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_GenericArguments" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.GenericArguments">GenericArguments</h4>
@@ -296,10 +295,10 @@ illegal values.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_IsArray.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.IsArray%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_IsArray.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.IsArray%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L190">View Source</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L212">View Source</a>
   </span>
   <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_IsArray_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.IsArray*"></a>
   <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_IsArray" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.IsArray">IsArray</h4>
@@ -327,10 +326,10 @@ illegal values.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_IsPointer.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.IsPointer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_IsPointer.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.IsPointer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L193">View Source</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L215">View Source</a>
   </span>
   <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_IsPointer_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.IsPointer*"></a>
   <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_IsPointer" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.IsPointer">IsPointer</h4>
@@ -358,10 +357,10 @@ illegal values.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_IsReference.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.IsReference%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_IsReference.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.IsReference%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L196">View Source</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L218">View Source</a>
   </span>
   <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_IsReference_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.IsReference*"></a>
   <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_IsReference" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.IsReference">IsReference</h4>
@@ -389,10 +388,10 @@ illegal values.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_Name.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_Name.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L170">View Source</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L192">View Source</a>
   </span>
   <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_Name_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.Name*"></a>
   <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_Name" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.Name">Name</h4>
@@ -447,10 +446,10 @@ illegal values.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_Namespace.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.Namespace%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_Namespace.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.Namespace%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L57">View Source</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L68">View Source</a>
   </span>
   <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_Namespace_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.Namespace*"></a>
   <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_Namespace" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.Namespace">Namespace</h4>
@@ -478,10 +477,10 @@ illegal values.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_NamespaceTypeName.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.NamespaceTypeName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_NamespaceTypeName.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.NamespaceTypeName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L70">View Source</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L81">View Source</a>
   </span>
   <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_NamespaceTypeName_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.NamespaceTypeName*"></a>
   <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_NamespaceTypeName" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.NamespaceTypeName">NamespaceTypeName</h4>
@@ -535,10 +534,10 @@ illegal values.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_TypeSpecifiers.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.TypeSpecifiers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_TypeSpecifiers.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.TypeSpecifiers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L54">View Source</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L65">View Source</a>
   </span>
   <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_TypeSpecifiers_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.TypeSpecifiers*"></a>
   <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_TypeSpecifiers" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.TypeSpecifiers">TypeSpecifiers</h4>
@@ -568,10 +567,112 @@ illegal values.</p>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_GetDeclaringType.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.GetDeclaringType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_Equals_Alphaleonis_Reflection_Metadata_TypeIdentifier_.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.Equals(Alphaleonis.Reflection.Metadata.TypeIdentifier)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L212">View Source</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L684">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_Equals_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.Equals*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_Equals_Alphaleonis_Reflection_Metadata_TypeIdentifier_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.Equals(Alphaleonis.Reflection.Metadata.TypeIdentifier)">Equals(TypeIdentifier)</h4>
+  <div class="markdown level1 summary"><p>Tests if this TypeIdentifier is considered equal to another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(TypeIdentifier other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Alphaleonis.Reflection.Metadata.TypeIdentifier.html">TypeIdentifier</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The type identifier to compare to this object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>True if the objects are considered equal, false if they are not.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L699">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_Equals_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.Equals*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_Equals_System_Object_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Tests if this object is considered equal to another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>The object to compare to this object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>True if the objects are considered equal, false if they are not.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_GetDeclaringType.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.GetDeclaringType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L237">View Source</a>
   </span>
   <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_GetDeclaringType_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.GetDeclaringType*"></a>
   <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_GetDeclaringType" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.GetDeclaringType">GetDeclaringType()</h4>
@@ -599,14 +700,15 @@ illegal values.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_GetElementType.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.GetElementType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_GetElementType.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.GetElementType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L203">View Source</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L228">View Source</a>
   </span>
   <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_GetElementType_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.GetElementType*"></a>
   <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_GetElementType" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.GetElementType">GetElementType()</h4>
-  <div class="markdown level1 summary"><p>Gets element type of this type if this type is an array, pointer or reference. Returns <span class="xref">null</span> otherwise.</p>
+  <div class="markdown level1 summary"><p>Gets element type of this type if this type is an array, pointer or reference. Returns
+<span class="xref">null</span> otherwise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -630,10 +732,44 @@ illegal values.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_Parse_System_String_.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.Parse(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_GetHashCode.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L230">View Source</a>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L713">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_GetHashCode_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.GetHashCode*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_GetHashCode" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Calculates a hash code for this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><p>A hash code for this object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_Parse_System_String_.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.Parse(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L255">View Source</a>
   </span>
   <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_Parse_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.Parse*"></a>
   <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_Parse_System_String_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.Parse(System.String)">Parse(String)</h4>
@@ -700,6 +836,44 @@ illegal values.</p>
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier_ToString.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L706">View Source</a>
+  </span>
+  <a id="Alphaleonis_Reflection_Metadata_TypeIdentifier_ToString_" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.ToString*"></a>
+  <h4 id="Alphaleonis_Reflection_Metadata_TypeIdentifier_ToString" data-uid="Alphaleonis.Reflection.Metadata.TypeIdentifier.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Convert this object into a string representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>A string that represents this object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iequatable-1">System.IEquatable&lt;T&gt;</a>
+  </div>
 </article>
           </div>
           
@@ -708,10 +882,10 @@ illegal values.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/feature/docfx/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/new/master/apiSpec/new?filename=Alphaleonis_Reflection_Metadata_TypeIdentifier.md&amp;value=---%0Auid%3A%20Alphaleonis.Reflection.Metadata.TypeIdentifier%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/feature/docfx/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L10" class="contribution-link">View Source</a>
+                    <a href="https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/src/Alphaleonis.Reflection.Metadata/TypeIdentifier/TypeIdentifier.cs/#L12" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

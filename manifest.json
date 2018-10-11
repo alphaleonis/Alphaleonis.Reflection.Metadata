@@ -14,11 +14,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Alphaleonis.Reflection.Metadata.AssemblyInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html",
+          "hash": "1jek/wHrWZloW602WG0N4g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.html",
+          "hash": "v3IiaAL/gV1mOeWVmngoqw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Alphaleonis.Reflection.Metadata.StrongNameKeyPairGenerator.yml",
       "output": {
         ".html": {
           "relative_path": "api/Alphaleonis.Reflection.Metadata.StrongNameKeyPairGenerator.html",
-          "hash": "xwygK5QVI5nTgXgjbuLf5Q=="
+          "hash": "8qZZpGFiqdWIOI7g5oSvlQ=="
         }
       },
       "is_incremental": false,
@@ -30,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Alphaleonis.Reflection.Metadata.TypeIdentifier.html",
-          "hash": "BIHYEPIv05zwSYzxXG3dog=="
+          "hash": "3pDTFinu+NO3dYUWlCYEEg=="
         }
       },
       "is_incremental": false,
@@ -42,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Alphaleonis.Reflection.Metadata.TypeNameParserException.html",
-          "hash": "7z82yUMkpbl3JJR4wNUOpQ=="
+          "hash": "mfLyuIc8GZskil06UMRMZg=="
         }
       },
       "is_incremental": false,
@@ -54,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Alphaleonis.Reflection.Metadata.TypeSpecifier.html",
-          "hash": "ygXaLNE3yfcZNmxPB0WtVA=="
+          "hash": "55PQrPc8GkoVmdaGhdEvaA=="
         }
       },
       "is_incremental": false,
@@ -66,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Alphaleonis.Reflection.Metadata.TypeSpecifierKind.html",
-          "hash": "GM52T25LxkY1yDANNWntnQ=="
+          "hash": "mE91Gkh6H8zVTmgrKTS4OA=="
         }
       },
       "is_incremental": false,
@@ -78,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Alphaleonis.Reflection.Metadata.html",
-          "hash": "NLQ9ywwFP+iTH245DYwAAA=="
+          "hash": "nqiDxA/x5GExR91o8/AjJg=="
         }
       },
       "is_incremental": false,
@@ -90,7 +114,19 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "9FzizjuiM0pSqgPP+NX44A=="
+          "hash": "grgf6RN/NFR8evhWzJjuvA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "2SXat9rHg2jaHE2TPCZd2g=="
         }
       },
       "is_incremental": false,
@@ -102,7 +138,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/intro.html",
-          "hash": "0H9G2qjs+jZDBRubZnFayQ=="
+          "hash": "jJRoEtDvg+bRXeYYUb3ZPQ=="
         }
       },
       "is_incremental": false,
@@ -114,7 +150,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/toc.html",
-          "hash": "e3tQKo0H88AvXAovFc74fA=="
+          "hash": "t7iiFrmuYmrKWisdq+lN6Q=="
         }
       },
       "is_incremental": false,
@@ -126,7 +162,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "84vT+9EoR9mY+YNX174cNw=="
+          "hash": "oBgresQ8aP8HXKB8lp8wCw=="
         }
       },
       "is_incremental": false,
@@ -138,7 +174,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "3UFH1wMU7XVvTXvmzzlSvw=="
+          "hash": "nIS9JIj2VpUg8R1gLOp/mA=="
         }
       },
       "is_incremental": false,
@@ -153,17 +189,17 @@
         "incrementalPhase": "build"
       },
       "processors": {
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
+          "incrementalPhase": "build"
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }

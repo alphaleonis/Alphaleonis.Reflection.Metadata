@@ -7,6 +7,163 @@ references:
   commentId: N:Alphaleonis.Reflection.Metadata
   fullName: Alphaleonis.Reflection.Metadata
   nameWithType: Alphaleonis.Reflection.Metadata
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo
+  name: AssemblyInfo
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html
+  commentId: T:Alphaleonis.Reflection.Metadata.AssemblyInfo
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo
+  nameWithType: AssemblyInfo
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.AssemblyName
+  name: AssemblyName
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_AssemblyName
+  commentId: P:Alphaleonis.Reflection.Metadata.AssemblyInfo.AssemblyName
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.AssemblyName
+  nameWithType: AssemblyInfo.AssemblyName
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.AssemblyName*
+  name: AssemblyName
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_AssemblyName_
+  commentId: Overload:Alphaleonis.Reflection.Metadata.AssemblyInfo.AssemblyName
+  isSpec: "True"
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.AssemblyName
+  nameWithType: AssemblyInfo.AssemblyName
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.AssemblyReferences
+  name: AssemblyReferences
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_AssemblyReferences
+  commentId: P:Alphaleonis.Reflection.Metadata.AssemblyInfo.AssemblyReferences
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.AssemblyReferences
+  nameWithType: AssemblyInfo.AssemblyReferences
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.AssemblyReferences*
+  name: AssemblyReferences
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_AssemblyReferences_
+  commentId: Overload:Alphaleonis.Reflection.Metadata.AssemblyInfo.AssemblyReferences
+  isSpec: "True"
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.AssemblyReferences
+  nameWithType: AssemblyInfo.AssemblyReferences
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.GetAssemblyInfo(System.Byte[])
+  name: GetAssemblyInfo(Byte[])
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_GetAssemblyInfo_System_Byte___
+  commentId: M:Alphaleonis.Reflection.Metadata.AssemblyInfo.GetAssemblyInfo(System.Byte[])
+  name.vb: GetAssemblyInfo(Byte())
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.GetAssemblyInfo(System.Byte[])
+  fullName.vb: Alphaleonis.Reflection.Metadata.AssemblyInfo.GetAssemblyInfo(System.Byte())
+  nameWithType: AssemblyInfo.GetAssemblyInfo(Byte[])
+  nameWithType.vb: AssemblyInfo.GetAssemblyInfo(Byte())
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.GetAssemblyInfo(System.String)
+  name: GetAssemblyInfo(String)
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_GetAssemblyInfo_System_String_
+  commentId: M:Alphaleonis.Reflection.Metadata.AssemblyInfo.GetAssemblyInfo(System.String)
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.GetAssemblyInfo(System.String)
+  nameWithType: AssemblyInfo.GetAssemblyInfo(String)
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.GetAssemblyInfo*
+  name: GetAssemblyInfo
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_GetAssemblyInfo_
+  commentId: Overload:Alphaleonis.Reflection.Metadata.AssemblyInfo.GetAssemblyInfo
+  isSpec: "True"
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.GetAssemblyInfo
+  nameWithType: AssemblyInfo.GetAssemblyInfo
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.IsAssembly
+  name: IsAssembly
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_IsAssembly
+  commentId: P:Alphaleonis.Reflection.Metadata.AssemblyInfo.IsAssembly
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.IsAssembly
+  nameWithType: AssemblyInfo.IsAssembly
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.IsAssembly*
+  name: IsAssembly
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_IsAssembly_
+  commentId: Overload:Alphaleonis.Reflection.Metadata.AssemblyInfo.IsAssembly
+  isSpec: "True"
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.IsAssembly
+  nameWithType: AssemblyInfo.IsAssembly
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.IsConsoleApplication
+  name: IsConsoleApplication
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_IsConsoleApplication
+  commentId: P:Alphaleonis.Reflection.Metadata.AssemblyInfo.IsConsoleApplication
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.IsConsoleApplication
+  nameWithType: AssemblyInfo.IsConsoleApplication
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.IsConsoleApplication*
+  name: IsConsoleApplication
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_IsConsoleApplication_
+  commentId: Overload:Alphaleonis.Reflection.Metadata.AssemblyInfo.IsConsoleApplication
+  isSpec: "True"
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.IsConsoleApplication
+  nameWithType: AssemblyInfo.IsConsoleApplication
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.IsDll
+  name: IsDll
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_IsDll
+  commentId: P:Alphaleonis.Reflection.Metadata.AssemblyInfo.IsDll
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.IsDll
+  nameWithType: AssemblyInfo.IsDll
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.IsDll*
+  name: IsDll
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_IsDll_
+  commentId: Overload:Alphaleonis.Reflection.Metadata.AssemblyInfo.IsDll
+  isSpec: "True"
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.IsDll
+  nameWithType: AssemblyInfo.IsDll
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.IsExe
+  name: IsExe
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_IsExe
+  commentId: P:Alphaleonis.Reflection.Metadata.AssemblyInfo.IsExe
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.IsExe
+  nameWithType: AssemblyInfo.IsExe
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.IsExe*
+  name: IsExe
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_IsExe_
+  commentId: Overload:Alphaleonis.Reflection.Metadata.AssemblyInfo.IsExe
+  isSpec: "True"
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.IsExe
+  nameWithType: AssemblyInfo.IsExe
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.MetadataVersion
+  name: MetadataVersion
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_MetadataVersion
+  commentId: P:Alphaleonis.Reflection.Metadata.AssemblyInfo.MetadataVersion
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.MetadataVersion
+  nameWithType: AssemblyInfo.MetadataVersion
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.MetadataVersion*
+  name: MetadataVersion
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_MetadataVersion_
+  commentId: Overload:Alphaleonis.Reflection.Metadata.AssemblyInfo.MetadataVersion
+  isSpec: "True"
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.MetadataVersion
+  nameWithType: AssemblyInfo.MetadataVersion
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.TargetFramework
+  name: TargetFramework
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_TargetFramework
+  commentId: P:Alphaleonis.Reflection.Metadata.AssemblyInfo.TargetFramework
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.TargetFramework
+  nameWithType: AssemblyInfo.TargetFramework
+- uid: Alphaleonis.Reflection.Metadata.AssemblyInfo.TargetFramework*
+  name: TargetFramework
+  href: api/Alphaleonis.Reflection.Metadata.AssemblyInfo.html#Alphaleonis_Reflection_Metadata_AssemblyInfo_TargetFramework_
+  commentId: Overload:Alphaleonis.Reflection.Metadata.AssemblyInfo.TargetFramework
+  isSpec: "True"
+  fullName: Alphaleonis.Reflection.Metadata.AssemblyInfo.TargetFramework
+  nameWithType: AssemblyInfo.TargetFramework
+- uid: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions
+  name: MetadataReaderExtensions
+  href: api/Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.html
+  commentId: T:Alphaleonis.Reflection.Metadata.MetadataReaderExtensions
+  fullName: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions
+  nameWithType: MetadataReaderExtensions
+- uid: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(MetadataReader,AssemblyDefinition)
+  name: ParseAssemblyName(MetadataReader, AssemblyDefinition)
+  href: api/Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.html#Alphaleonis_Reflection_Metadata_MetadataReaderExtensions_ParseAssemblyName_MetadataReader_AssemblyDefinition_
+  commentId: M:Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(MetadataReader,AssemblyDefinition)
+  fullName: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(MetadataReader, AssemblyDefinition)
+  nameWithType: MetadataReaderExtensions.ParseAssemblyName(MetadataReader, AssemblyDefinition)
+- uid: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(MetadataReader,AssemblyReference)
+  name: ParseAssemblyName(MetadataReader, AssemblyReference)
+  href: api/Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.html#Alphaleonis_Reflection_Metadata_MetadataReaderExtensions_ParseAssemblyName_MetadataReader_AssemblyReference_
+  commentId: M:Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(MetadataReader,AssemblyReference)
+  fullName: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(MetadataReader, AssemblyReference)
+  nameWithType: MetadataReaderExtensions.ParseAssemblyName(MetadataReader, AssemblyReference)
+- uid: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName*
+  name: ParseAssemblyName
+  href: api/Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.html#Alphaleonis_Reflection_Metadata_MetadataReaderExtensions_ParseAssemblyName_
+  commentId: Overload:Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName
+  isSpec: "True"
+  fullName: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName
+  nameWithType: MetadataReaderExtensions.ParseAssemblyName
 - uid: Alphaleonis.Reflection.Metadata.StrongNameKeyPairGenerator
   name: StrongNameKeyPairGenerator
   href: api/Alphaleonis.Reflection.Metadata.StrongNameKeyPairGenerator.html
@@ -71,6 +228,25 @@ references:
   isSpec: "True"
   fullName: Alphaleonis.Reflection.Metadata.TypeIdentifier.AssemblyQualifiedName
   nameWithType: TypeIdentifier.AssemblyQualifiedName
+- uid: Alphaleonis.Reflection.Metadata.TypeIdentifier.Equals(Alphaleonis.Reflection.Metadata.TypeIdentifier)
+  name: Equals(TypeIdentifier)
+  href: api/Alphaleonis.Reflection.Metadata.TypeIdentifier.html#Alphaleonis_Reflection_Metadata_TypeIdentifier_Equals_Alphaleonis_Reflection_Metadata_TypeIdentifier_
+  commentId: M:Alphaleonis.Reflection.Metadata.TypeIdentifier.Equals(Alphaleonis.Reflection.Metadata.TypeIdentifier)
+  fullName: Alphaleonis.Reflection.Metadata.TypeIdentifier.Equals(Alphaleonis.Reflection.Metadata.TypeIdentifier)
+  nameWithType: TypeIdentifier.Equals(TypeIdentifier)
+- uid: Alphaleonis.Reflection.Metadata.TypeIdentifier.Equals(System.Object)
+  name: Equals(Object)
+  href: api/Alphaleonis.Reflection.Metadata.TypeIdentifier.html#Alphaleonis_Reflection_Metadata_TypeIdentifier_Equals_System_Object_
+  commentId: M:Alphaleonis.Reflection.Metadata.TypeIdentifier.Equals(System.Object)
+  fullName: Alphaleonis.Reflection.Metadata.TypeIdentifier.Equals(System.Object)
+  nameWithType: TypeIdentifier.Equals(Object)
+- uid: Alphaleonis.Reflection.Metadata.TypeIdentifier.Equals*
+  name: Equals
+  href: api/Alphaleonis.Reflection.Metadata.TypeIdentifier.html#Alphaleonis_Reflection_Metadata_TypeIdentifier_Equals_
+  commentId: Overload:Alphaleonis.Reflection.Metadata.TypeIdentifier.Equals
+  isSpec: "True"
+  fullName: Alphaleonis.Reflection.Metadata.TypeIdentifier.Equals
+  nameWithType: TypeIdentifier.Equals
 - uid: Alphaleonis.Reflection.Metadata.TypeIdentifier.FullName
   name: FullName
   href: api/Alphaleonis.Reflection.Metadata.TypeIdentifier.html#Alphaleonis_Reflection_Metadata_TypeIdentifier_FullName
@@ -123,6 +299,19 @@ references:
   isSpec: "True"
   fullName: Alphaleonis.Reflection.Metadata.TypeIdentifier.GetElementType
   nameWithType: TypeIdentifier.GetElementType
+- uid: Alphaleonis.Reflection.Metadata.TypeIdentifier.GetHashCode
+  name: GetHashCode()
+  href: api/Alphaleonis.Reflection.Metadata.TypeIdentifier.html#Alphaleonis_Reflection_Metadata_TypeIdentifier_GetHashCode
+  commentId: M:Alphaleonis.Reflection.Metadata.TypeIdentifier.GetHashCode
+  fullName: Alphaleonis.Reflection.Metadata.TypeIdentifier.GetHashCode()
+  nameWithType: TypeIdentifier.GetHashCode()
+- uid: Alphaleonis.Reflection.Metadata.TypeIdentifier.GetHashCode*
+  name: GetHashCode
+  href: api/Alphaleonis.Reflection.Metadata.TypeIdentifier.html#Alphaleonis_Reflection_Metadata_TypeIdentifier_GetHashCode_
+  commentId: Overload:Alphaleonis.Reflection.Metadata.TypeIdentifier.GetHashCode
+  isSpec: "True"
+  fullName: Alphaleonis.Reflection.Metadata.TypeIdentifier.GetHashCode
+  nameWithType: TypeIdentifier.GetHashCode
 - uid: Alphaleonis.Reflection.Metadata.TypeIdentifier.IsArray
   name: IsArray
   href: api/Alphaleonis.Reflection.Metadata.TypeIdentifier.html#Alphaleonis_Reflection_Metadata_TypeIdentifier_IsArray
@@ -214,6 +403,19 @@ references:
   isSpec: "True"
   fullName: Alphaleonis.Reflection.Metadata.TypeIdentifier.Parse
   nameWithType: TypeIdentifier.Parse
+- uid: Alphaleonis.Reflection.Metadata.TypeIdentifier.ToString
+  name: ToString()
+  href: api/Alphaleonis.Reflection.Metadata.TypeIdentifier.html#Alphaleonis_Reflection_Metadata_TypeIdentifier_ToString
+  commentId: M:Alphaleonis.Reflection.Metadata.TypeIdentifier.ToString
+  fullName: Alphaleonis.Reflection.Metadata.TypeIdentifier.ToString()
+  nameWithType: TypeIdentifier.ToString()
+- uid: Alphaleonis.Reflection.Metadata.TypeIdentifier.ToString*
+  name: ToString
+  href: api/Alphaleonis.Reflection.Metadata.TypeIdentifier.html#Alphaleonis_Reflection_Metadata_TypeIdentifier_ToString_
+  commentId: Overload:Alphaleonis.Reflection.Metadata.TypeIdentifier.ToString
+  isSpec: "True"
+  fullName: Alphaleonis.Reflection.Metadata.TypeIdentifier.ToString
+  nameWithType: TypeIdentifier.ToString
 - uid: Alphaleonis.Reflection.Metadata.TypeIdentifier.TypeSpecifiers
   name: TypeSpecifiers
   href: api/Alphaleonis.Reflection.Metadata.TypeIdentifier.html#Alphaleonis_Reflection_Metadata_TypeIdentifier_TypeSpecifiers
