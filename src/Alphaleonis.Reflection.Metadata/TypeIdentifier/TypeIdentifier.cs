@@ -10,11 +10,12 @@ namespace Alphaleonis.Reflection.Metadata
    ///          type name, both for reading and for modification.</summary>
    /// <remarks>Use <see cref="Parse(string)"/> to create a new instance of a <see cref="TypeIdentifier" /></remarks>
    [Serializable]
-   public class TypeIdentifier
+   public class TypeIdentifier : IEquatable<TypeIdentifier>
    {
       #region Private Fields
 
       private List<string> m_nestedTypeName;
+      private IList<TypeIdentifier> m_genericArguments;
 
       #endregion
 
@@ -24,23 +25,31 @@ namespace Alphaleonis.Reflection.Metadata
       {
          TypeSpecifiers = typeSpecifiers ?? new List<TypeSpecifier>();
          Namespace = namespaceName;
-         m_nestedTypeName = nestedTypeName;
-         GenericArguments = genericArguments;
+         m_nestedTypeName = nestedTypeName ?? throw new ArgumentNullException(nameof(nestedTypeName));
+         m_genericArguments = genericArguments;
          AssemblyName = assemblyName;
       }
 
       private TypeIdentifier(TypeIdentifier other)
       {
          TypeSpecifiers = new List<TypeSpecifier>(other.TypeSpecifiers);
-         GenericArguments = CloneGenericArguments(other.GenericArguments);
+         m_genericArguments = CloneGenericArguments(other.m_genericArguments);
          AssemblyName = other.AssemblyName;
          Namespace = other.Namespace;
          m_nestedTypeName = new List<string>(other.m_nestedTypeName);
 
       }
 
+      internal TypeIdentifier(string typeName, string namespaceName, AssemblyName assemblyName)
+         : this(namespaceName, new List<string>() { typeName }, null, null, assemblyName)
+      {
+      }
+
       private static IList<TypeIdentifier> CloneGenericArguments(IList<TypeIdentifier> genericArguments)
       {
+         if (genericArguments == null)
+            return null;
+
          return new List<TypeIdentifier>(genericArguments.Select(arg => new TypeIdentifier(arg)));
       }
 
@@ -123,12 +132,23 @@ namespace Alphaleonis.Reflection.Metadata
             if (value.Length == 0)
                throw new ArgumentException($"{nameof(value)} is empty.", nameof(value));
 
-            (Namespace, m_nestedTypeName, GenericArguments, TypeSpecifiers, AssemblyName) = ParseAssemblyQualifiedName(new CharReader(value), false);
+            (Namespace, m_nestedTypeName, m_genericArguments, TypeSpecifiers, AssemblyName) = ParseAssemblyQualifiedName(new CharReader(value), false);
          }
       }
 
       /// <summary>Gets a list containing the generic arguments of this type, or an empty list if no generic arguments are available.</summary>      
-      public IList<TypeIdentifier> GenericArguments { get; private set; }
+      public IList<TypeIdentifier> GenericArguments
+      {
+         get
+         {
+            if (m_genericArguments == null)
+            {
+               m_genericArguments = new List<TypeIdentifier>();
+            }
+
+            return m_genericArguments;
+         }
+      }
 
       /// <summary>
       /// Gets or sets the full name of the type. This is equivalent to
@@ -154,7 +174,7 @@ namespace Alphaleonis.Reflection.Metadata
             if (value.Length == 0)
                throw new ArgumentException($"{nameof(value)} is empty.", nameof(value));
 
-            (Namespace, m_nestedTypeName, GenericArguments, TypeSpecifiers) = ParseFullName(new CharReader(value), false);
+            (Namespace, m_nestedTypeName, m_genericArguments, TypeSpecifiers) = ParseFullName(new CharReader(value), false);
          }
       }
 
@@ -210,7 +230,7 @@ namespace Alphaleonis.Reflection.Metadata
          if (TypeSpecifiers.Count == 0)
             return null;
 
-         return new TypeIdentifier(Namespace, new List<string>(m_nestedTypeName), TypeSpecifiers.Take(TypeSpecifiers.Count - 1).ToList(), CloneGenericArguments(GenericArguments), AssemblyName);
+         return new TypeIdentifier(Namespace, new List<string>(m_nestedTypeName), TypeSpecifiers.Take(TypeSpecifiers.Count - 1).ToList(), CloneGenericArguments(m_genericArguments), AssemblyName);
       }
 
       /// <summary>Gets declaring type of this type if this type is a nested type, or returns <see langword="null"/> otherwise.</summary>
@@ -219,7 +239,7 @@ namespace Alphaleonis.Reflection.Metadata
          if (m_nestedTypeName.Count <= 1)
             return null;
 
-         return new TypeIdentifier(Namespace, m_nestedTypeName.GetRange(0, m_nestedTypeName.Count - 1), TypeSpecifiers, CloneGenericArguments(GenericArguments), AssemblyName);
+         return new TypeIdentifier(Namespace, m_nestedTypeName.GetRange(0, m_nestedTypeName.Count - 1), TypeSpecifiers, CloneGenericArguments(m_genericArguments), AssemblyName);
       }
 
       #endregion
@@ -252,22 +272,21 @@ namespace Alphaleonis.Reflection.Metadata
       {
          result.Append(NamespaceTypeName);
 
-         if (GenericArguments.Count > 0)
+         if (m_genericArguments != null && m_genericArguments.Count > 0)
          {
             result.Append('[');
 
-            for (int i = 0; i < GenericArguments.Count; i++)
+            for (int i = 0; i < m_genericArguments.Count; i++)
             {
                if (i > 0)
                   result.Append(',');
 
-               if (GenericArguments[i].AssemblyName != null)
+               if (m_genericArguments[i].AssemblyName != null)
                   result.Append('[');
-               result.Append(GenericArguments[i].AssemblyQualifiedName);
-               if (GenericArguments[i].AssemblyName != null)
+               result.Append(m_genericArguments[i].AssemblyQualifiedName);
+               if (m_genericArguments[i].AssemblyName != null)
                   result.Append(']');
             }
-
 
             result.Append(']');
          }
@@ -304,7 +323,7 @@ namespace Alphaleonis.Reflection.Metadata
          if (reader.Peek() == '[' && la1 != ',' && la1 != '*' && la1 != ']')
             genericArguments = ParseGenericArguments(reader);
          else
-            genericArguments = new List<TypeIdentifier>();
+            genericArguments = null;
 
          IList<TypeSpecifier> spec = ParseRefPtrArrSpec(reader);
 
@@ -659,6 +678,42 @@ namespace Alphaleonis.Reflection.Metadata
          }
       }
 
+      /// <summary>Tests if this TypeIdentifier is considered equal to another.</summary>
+      /// <param name="other">The type identifier to compare to this object.</param>
+      /// <returns>True if the objects are considered equal, false if they are not.</returns>
+      public bool Equals(TypeIdentifier other)
+      {
+         if (other == null)
+            return false;
+
+         return EqualityComparer<string>.Default.Equals(Namespace, other.Namespace) &&
+                m_nestedTypeName.SequenceEqual(other.m_nestedTypeName) &&
+                (m_genericArguments == null && other.m_genericArguments == null || m_genericArguments != null && m_genericArguments.SequenceEqual(other.m_genericArguments)) &&
+                TypeSpecifiers.SequenceEqual(other.TypeSpecifiers) &&
+                (AssemblyName == null && other.AssemblyName == null || AssemblyName != null && AssemblyName.FullName.Equals(other.AssemblyName?.FullName));
+      }
+
+      /// <summary>Tests if this object is considered equal to another.</summary>
+      /// <param name="obj">The object to compare to this object.</param>
+      /// <returns>True if the objects are considered equal, false if they are not.</returns>
+      public override bool Equals(object obj)
+      {
+         return Equals(obj as TypeIdentifier);
+      }
+
+      /// <summary>Convert this object into a string representation.</summary>
+      /// <returns>A string that represents this object.</returns>
+      public override string ToString()
+      {
+         return FullName;
+      }
+
+      /// <summary>Calculates a hash code for this object.</summary>
+      /// <returns>A hash code for this object.</returns>
+      public override int GetHashCode()
+      {
+         return Name.GetHashCode();
+      }
       #endregion
 
       #region Nested Types

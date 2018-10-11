@@ -1,11 +1,10 @@
+using System.Xml.Linq;
 #addin nuget:?package=Cake.DocFx
-using System.Net;
-using System.Net.Http.Headers;
-using System.Net.Http;
-using RestSharp;
 #addin nuget:?package=Cake.Git
 #addin nuget:?package=Cake.Incubator
-#addin nuget:?package=RestSharp
+#l "build/appveyor-util.cake"
+#l "build/common.cake"
+#l "build/git-util.cake"
 #tool "docfx.console"
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -14,16 +13,20 @@ using RestSharp;
 
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
-var ToolsDirectory = "./tools/";
+var ToolsDirectory = Directory("./tools/");
 var ArtifactsDirectory = Directory("./artifacts");
 var SolutionFile = "./Alphaleonis.Reflection.Metadata.sln";
+var DocFxFile = "./docs/docfx.json";
 var DocFxArtifactsDirectory = ArtifactsDirectory.Path.Combine("docs");
-var WorkDirectory = Directory("./work");
+var WorkDirectory = ToolsDirectory.Path.Combine("_work");
 var GitHubProject = BuildSystem.AppVeyor.IsRunningOnAppVeyor ? BuildSystem.AppVeyor.Environment.Repository.Name : "alphaleonis/Alphaleonis.Reflection.Metadata";
 var DocFxBranchName = "gh-pages";
 var DocFxArtifactName = "artifacts/docs.zip";
 var GitHubCommitName = "AppVeyor";
 var GitHubCommitEMail = "alphaleonis-build@users.noreply.github.com";
+var AppVeyorApiBaseUrl = "https://ci.appveyor.com/api";
+var TestProjectsPattern = "./tests/**/*.csproj";
+var PackProjectsPattern = "./src/**/*.csproj";
 
 var msBuildSettings = new DotNetCoreMSBuildSettings
 {
@@ -37,8 +40,39 @@ var msBuildSettings = new DotNetCoreMSBuildSettings
 Setup(ctx =>
 {
     if (BuildSystem.AppVeyor.IsRunningOnAppVeyor) 
-    {
-        Information($"AppVeyor Build JobId: {BuildSystem.AppVeyor.Environment.JobId}");
+    {        
+        Information("Updating build number");
+        string targetVersion;
+        if (AppVeyor.Environment.Repository.Branch == DocFxBranchName)
+        {
+            foreach (var variable in EnvironmentVariables())
+            {
+                if (variable.Key.StartsWithIgnoreCase("ALPHALEONIS"))
+                {
+                    Verbose($"{variable.Key}={variable.Value}");
+                }
+            }
+            targetVersion = EnvironmentVariable<string>("ALPHALEONIS_DEPLOY_BUILD_VERSION", null);
+        }
+        else
+        {
+            // Update BuildNumber.
+            var propsFile = File("build/common.props");
+            string major = XmlPeek(propsFile, "//PropertyGroup/Major");
+            string minor = XmlPeek(propsFile, "//PropertyGroup/Minor");
+            string revision = XmlPeek(propsFile, "//PropertyGroup/Revision");
+
+            if (String.IsNullOrEmpty(major) || 
+                String.IsNullOrEmpty(minor) ||
+                String.IsNullOrEmpty(revision))
+            {
+                throw new Exception($"Unable to find Major, Minor and/or Build version in {propsFile}.");
+            }
+            targetVersion = $"{major}.{minor}.{revision}";
+        }
+
+        if (targetVersion != null)
+            BuildSystem.AppVeyor.UpdateBuildVersion($"{targetVersion}.{AppVeyor.Environment.Build.Number}");        
     }
 });
 
@@ -49,18 +83,9 @@ Teardown(ctx =>
 ///////////////////////////////////////////////////////////////////////////////
 // TASKS
 ///////////////////////////////////////////////////////////////////////////////
-
-Task("SetBuildNumber")
-    .WithCriteria(AppVeyor.IsRunningOnAppVeyor)
-    .Does(() => 
-    {
-        Warning("Setting a build number");
-    });
-
 Task("Clean")
-    .IsDependentOn("SetBuildNumber")
     .Does(() =>
-    {
+    {        
         CleanDirectory(ArtifactsDirectory);
     });
 
@@ -96,7 +121,7 @@ Task("Test")
             NoRestore = true,
             Logger = "trx"            
         };
-        var projects = GetFiles("./tests/**/*.csproj");
+        var projects = GetFiles(TestProjectsPattern);
         foreach (var project in projects)
         {
             DotNetCoreTest(project.FullPath, settings);
@@ -113,7 +138,7 @@ void UploadTestResults()
     {
         foreach (var trx in GetFiles("./**/*.trx"))
         {
-            UploadFile($"https://ci.appveyor.com/api/testresults/mstest/{BuildSystem.AppVeyor.Environment.JobId}", trx);                
+            PublishAppVeyorTestResult(trx, AppVeyorApiBaseUrl);            
         }
     }
 }
@@ -127,19 +152,18 @@ Task("PublishTestResults")
     });
 
 Task("Pack")
-    .IsDependentOn("PublishTestResults")
+    .IsDependentOn("PublishTestResults")    
     .Does(() => 
     {
-        msBuildSettings.SetVersion("1.2.3");
-
         var settings = new DotNetCorePackSettings
         {
             Configuration = configuration,
             OutputDirectory = ArtifactsDirectory,
-            MSBuildSettings = msBuildSettings
+            MSBuildSettings = msBuildSettings, 
+            NoBuild = true
         };
 
-        var projects = GetFiles("./src/**/*.csproj", fs => !fs.Path.FullPath.EndsWith("Tests"));
+        var projects = GetFiles(PackProjectsPattern);
         foreach(var project in projects)
         {
             DotNetCorePack(project.FullPath, settings);
@@ -148,51 +172,38 @@ Task("Pack")
 
 Task("DocClean")
     .Does(() => 
-    {
+    {        
         CleanDirectory(DocFxArtifactsDirectory, true);
     });
 
 Task("DocBuild")
     .IsDependentOn("DocClean")
     .Does(() => 
-    {
-        DocFxMetadata("./docs/docfx.json");
-        DocFxBuild("./docs/docfx.json");
+    {        
+        DocFxMetadata(DocFxFile);
+        DocFxBuild(DocFxFile);
     });
-    
+
 var DocPublishTask = Task("DocPublish")
     .Does(() => 
-    {        
-        // 'ALPHALEONIS_DEPLOY_BUILD_ID'
-        // 'ALPHALEONIS_DEPLOY_SOURCE_PROJECT_ID'
-        // 'ALPHALEONIS_DEPLOY_BUILD_NUMBER'
-        // 'ALPHALEONIS_DEPLOY_BUILD_VERSION'
-        // 'ALPHALEONIS_DEPLOY_JOB_ID'
-        // 'ALPHALEONIS_DEPLOY_PROJECT_SLUG'
-         
-        var docFxArtifactZip = WorkDirectory.Path.CombineWithFilePath("docfx-source.zip");
-        var gitCloneDir = MakeAbsolute(WorkDirectory.Path.Combine(Directory("repo")));
+    {             
+        var artifactTempZipPath = WorkDirectory.CombineWithFilePath("docfx-artifact.zip");
+        var gitCloneDir = MakeAbsolute(WorkDirectory.Combine(Directory("repo")));
         var gitCloneUrl = $"git@github.com:{GitHubProject}.git";
-        var accessToken = EnvironmentVariable("access_token");
         var gitCommitMessage = "Updated documentation";
-            var sourceBuildVersion = EnvironmentVariable("ALPHALEONIS_DEPLOY_BUILD_VERSION", "0.0.0");
+        var sourceBuildVersion = EnvironmentVariable("ALPHALEONIS_DEPLOY_BUILD_VERSION", "0.0.0");
 
         EnsureDirectoryExists(WorkDirectory);
 
         if (!BuildSystem.IsLocalBuild) 
         {
-            // if (String.IsNullOrEmpty(accessToken)) {
-            //     BuildSystem.AppVeyor.AddErrorMessage("No access token for git access was specified. Expecting environment variable named 'access_token'.");                
-            //     throw new Exception("No access token for git access was specified. Expecting environment variable named 'access_token'.");
-            // }
-            var apiUrl = "https://ci.appveyor.com/api"; 
             var jobId = EnvironmentVariable<string>("ALPHALEONIS_DEPLOY_JOB_ID", null);
 
             if (String.IsNullOrEmpty(jobId))
                 throw new ArgumentException($"Missing environment variable ALPHALEONIS_DEPLOY_JOB_ID");
             
             // Download the artifact from the build server if this is not a local build.
-            DownloadArtifact(apiUrl, jobId, DocFxArtifactName, sourceBuildVersion, docFxArtifactZip);
+            DownloadAppVeyorArtifact(AppVeyorApiBaseUrl, jobId, DocFxArtifactName, sourceBuildVersion, artifactTempZipPath);
         }
         else
         {
@@ -205,7 +216,6 @@ var DocPublishTask = Task("DocPublish")
         Information($"Cloning {gitCloneUrl} to {gitCloneDir}");
 
         GitCommand(null, "clone", "-b", DocFxBranchName, "--single-branch", gitCloneUrl, gitCloneDir.FullPath);
-        //GitClone(gitCloneUrl, gitCloneDir, new GitCloneSettings { BranchName = DocFxBranchName, Checkout = true });
         
         var allFilesInGitRepo = GetFiles(gitCloneDir.FullPath + "/**/*").Where(f => !MakeAbsolute(gitCloneDir).GetRelativePath(f).FullPath.StartsWith(".git/")).ToArray();
         
@@ -217,7 +227,7 @@ var DocPublishTask = Task("DocPublish")
 
         if (!BuildSystem.IsLocalBuild)
         {
-            Unzip(docFxArtifactZip, gitCloneDir);
+            Unzip(artifactTempZipPath, gitCloneDir);
         }
         else
         {
@@ -260,104 +270,6 @@ if (BuildSystem.IsLocalBuild)
 
 RunTarget(target);
 
-void DeleteDirectoryIfExists(DirectoryPath path)
-{
-    if (DirectoryExists(path))
-    {
-        DeleteDirectory(path, new DeleteDirectorySettings { Force = true, Recursive = true });
-    }
-}
 
-void CleanDirectory(DirectoryPath path, bool force)
-{
-    if (force && DirectoryExists(path))
-    {
-        Verbose("Removing ReadOnly attributes on all files in directory {0}", path);                
-        foreach (var file in System.IO.Directory.GetFiles(MakeAbsolute(path).FullPath, "*", SearchOption.AllDirectories))
-        {
-            System.IO.File.SetAttributes(file, System.IO.File.GetAttributes(file) & ~FileAttributes.ReadOnly);            
-        }
-    }
 
-    CleanDirectory(path);
-}
 
-void DownloadArtifact(string apiUrl, string jobId, string artifactName, string sourceBuildVersion, FilePath targetFile)
-{            
-    var artifacts = RestInvoke<List<ArtifactInfo>>(apiUrl,  $"buildjobs/{jobId}/artifacts", Method.GET);
-
-    ArtifactInfo matchingArtifact = null;
-    foreach (var artifact in artifacts)
-    {
-        Verbose($"- Found artifact: {artifact.FileName} of type {artifact.Type}");
-        if (artifact.FileName.Equals(artifactName, StringComparison.OrdinalIgnoreCase)) {
-            if (matchingArtifact != null)
-                throw new Exception($"Multiple artifacts matching the name \"{artifactName}\" were found.");
-            else
-                matchingArtifact = artifact;
-        }
-    }
-
-    if (matchingArtifact == null)
-        throw new FileNotFoundException($"Unable to find artifact named \"{artifactName}\" in build {sourceBuildVersion}.");
-    
-    Information($"Found matching artifact: {matchingArtifact.FileName}, type={matchingArtifact.Type}, size={matchingArtifact.Size}b");
-
-    var url = apiUrl + $"/buildjobs/{jobId}/artifacts/{WebUtility.UrlEncode(matchingArtifact.FileName)}";      
-    EnsureDirectoryExists("_download");
-    Information($"Downloading artifact {matchingArtifact.FileName} to {targetFile.FullPath}");
-    DownloadFile(url, targetFile);
-}
-
-T RestInvoke<T>(string baseUrl, string resource, Method method) where T : new()
-{
-    var client = new RestClient(baseUrl);
-    var request = new RestRequest(resource, method);
-    Verbose($"{method} {baseUrl}/{resource}");
-    var result = client.Execute<T>(request);
-    if (result.StatusCode != HttpStatusCode.OK || !result.IsSuccessful)
-    {
-        throw new Exception($"REST call to {baseUrl}/{resource} failed with status {result.StatusCode}. Error message: {result.ErrorMessage}");
-    }
-    return result.Data;    
-}
-
-class ArtifactInfo
-{
-    public string FileName { get; set; }
-    public string Type { get; set; }
-    public long Size{ get; set;}
-    public DateTime Created { get; set; }
-    public string RelativeName => System.IO.Path.GetFileName(FileName);
-}
-
-void GitCommand(DirectoryPath repositoryDir, string command, params string[] args)
-{
-    var gitPath = Context.Tools.Resolve("git.exe");
-    if (gitPath == null)
-        throw new Exception($"Unable to resolve git.exe tool.");
-
-    var argumentBuilder = new ProcessArgumentBuilder();
-    argumentBuilder.Append(command);
-    foreach (var arg in args)
-        argumentBuilder.Append(arg);
-
-    int exitCode = StartProcess(gitPath, new ProcessSettings {
-        WorkingDirectory = repositoryDir, 
-        Arguments = argumentBuilder,
-        RedirectStandardOutput = true,
-        RedirectStandardError = true
-    }, out var stdOut, out var stdErr);
-
-    foreach (var output in stdOut)
-        Information(output);
-
-    // Git apparently writes all messages to stderr... so we just write them as verbose.
-     foreach (var output in stdErr)
-        Verbose(output);
-
-    if (exitCode != 0)
-    {
-        throw new Exception($"Git failed with exit code {exitCode}.");
-    }
-}

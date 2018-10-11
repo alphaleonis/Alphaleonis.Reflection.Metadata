@@ -1,0 +1,44 @@
+<Project>
+  <PropertyGroup>
+    <Product>Alphaleonis.Reflection.Metadata</Product>
+    <Description>Alphaleonis.Reflection.Metadata is a small library providing some utilities for working with 
+    .NET assembly metadata.</Description>
+    <Authors>Alphaleonis</Authors>
+    <Copyright>Copyright (C) Peter Palotas</Copyright>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseUrl>https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/</PackageProjectUrl>
+    <!-- <PackageIconUrl>http://alphaleonis.com/img/AlphaFS-icon.png</PackageIconUrl> -->
+    <PackageOutputPath>../../artifacts</PackageOutputPath>    
+    <RepositoryUrl>https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata</RepositoryUrl>
+    <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>true</EnableDefaultEmbeddedResourceItems>
+ </PropertyGroup>
+ <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\build\Alphaleonis.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CurrentDate>$([System.DateTime]::Now.ToString(yyMMdd-HHmm))</CurrentDate>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <LangVersion>7.2</LangVersion>
+    
+    <Major>0</Major>
+    <Minor>1</Minor>
+    <Revision>0</Revision>
+
+    <BuildNumber Condition=" '$(APPVEYOR_BUILD_NUMBER)' != '' ">$(APPVEYOR_BUILD_NUMBER)</BuildNumber>
+    <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
+    
+    <PrereleaseLabel Condition="'$(APPVEYOR_REPO_BRANCH)' != 'master'">-dev-$(CurrentDate)</PrereleaseLabel>
+
+    <AssemblyVersion>$(Major).$(Minor).$(Revision).0</AssemblyVersion>
+    <AssemblyFileVersion>$(Major).$(Minor).$(Revision).$(BuildNumber)</AssemblyFileVersion>
+    <InformationalVersion>$(Major).$(Minor).$(Revision).$(BuildNumber)$(PrereleaseLabel)</InformationalVersion>
+    <PackageVersion>$(Major).$(Minor).$(Revision)$(PrereleaseLabel)</PackageVersion>
+  </PropertyGroup>
+</Project>
