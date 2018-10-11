@@ -5,6 +5,7 @@
     <IsPackable>true</IsPackable>
     <PackageId>Alphaleonis.Reflection.Metadata</PackageId>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -13,6 +14,26 @@
     <AssemblyOriginatorKeyFile>$(ProjectDir)..\..\build\Alphaleonis.snk</AssemblyOriginatorKeyFile>
     <DelaySign>false</DelaySign>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="AssemblyInfo\AssemblyInfo.cs" />
+    <Compile Include="AssemblyInfo\AttributeDescription.cs" />
+    <Compile Include="AssemblyInfo\KnownEnumType.cs" />
+    <Compile Include="AssemblyInfo\MetadataReaderExtensions.cs" />
+    <Compile Include="AssemblyInfo\MetadataTypeDescription\ArrayTypeDescription.cs" />
+    <Compile Include="AssemblyInfo\MetadataTypeDescription\PrimitiveTypeDescription.cs" />
+    <Compile Include="AssemblyInfo\MetadataTypeDescription\SystemTypeDescription.cs" />
+    <Compile Include="AssemblyInfo\MetadataTypeDescription\TypeDescription.cs" />
+    <Compile Include="AssemblyInfo\MetadataTypeDescription\TypeDescriptionKind.cs" />
+    <Compile Include="AssemblyInfo\MetadataTypeDescription\TypeHandleTypeDescription.cs" />
+    <Compile Include="AssemblyInfo\MetadataTypeIdentifier.cs" />
+    <Compile Include="AssemblyInfo\TypeDescriptionCustomAttributeProvider.cs" />
+    <Compile Include="Snk\StrongNameKeyPairGenerator.cs" />
+    <Compile Include="TypeIdentifier\TypeIdentifier.cs" />
+    <Compile Include="TypeIdentifier\TypeNameParserException.cs" />
+    <Compile Include="TypeIdentifier\TypeSpecifier.cs" />
+    <Compile Include="TypeIdentifier\TypeSpecifierKind.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="..\..\build\Alphaleonis.snk" Link="Alphaleonis.snk" />

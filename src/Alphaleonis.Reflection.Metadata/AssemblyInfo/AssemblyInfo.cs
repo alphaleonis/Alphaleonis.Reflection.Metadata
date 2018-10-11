@@ -19,8 +19,8 @@ namespace Alphaleonis.Reflection.Metadata
    /// <see cref="Assembly"/> object. This however has the drawback that it is not possible to unload the assembly without performing 
    /// the operation in a separate <see cref="AppDomain"/>.
    ///                        
-   /// This class retrieves basic information about the assembly only, via the <see cref="MetadataReader"/> provided in <see cref="System.Reflection.Metadata"/>, 
-   /// so the targetted assembly is not loaded into the AppDomain as is the case with <see cref="O:Assembly.Load"/> and <see cref="O:Assembly.ReflectionOnlyLoad"/> methods.      
+   /// This class retrieves basic information about the assembly only, via the <see cref="System.Reflection.Metadata.MetadataReader"/> provided in <see cref="System.Reflection.Metadata"/>, 
+   /// so the targetted assembly is not loaded into the AppDomain as is the case with <see cref="M:Assembly.Load"/> and <see cref="M:Assembly.ReflectionOnlyLoad"/> methods.      
    /// </remarks>
    public sealed class AssemblyInfo
    {

@@ -11,8 +11,8 @@
     <!-- <PackageIconUrl>http://alphaleonis.com/img/AlphaFS-icon.png</PackageIconUrl> -->
     <PackageOutputPath>../../artifacts</PackageOutputPath>    
     <RepositoryUrl>https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata</RepositoryUrl>
-    <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
-    <EnableDefaultEmbeddedResourceItems>true</EnableDefaultEmbeddedResourceItems>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
  </PropertyGroup>
  <PropertyGroup>
     <SignAssembly>true</SignAssembly>

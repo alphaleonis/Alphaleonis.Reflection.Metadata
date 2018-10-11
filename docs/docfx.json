@@ -6,10 +6,8 @@
           "files": [
             "src/**.csproj"
           ],
-          "exclude": [
-            "**/*Tests.csproj"
-          ],
-          "cwd": ".."
+          "cwd": "..",
+          "TargetFramework": "netstandard20"
         }
       ],
       "dest": "api",
