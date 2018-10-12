@@ -59,12 +59,14 @@
     "globalMetadata": {
       "_appTitle": "Alphaleonis.Reflection.Metadata",
       "_appFooter": "<span>Copyright © 2018 <strong>Peter Palotas</strong></span>",
-      "_enableSearch": true
+      "_enableSearch": true,
+      "_appLogoPath": "images/logo.svg"
     },
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
-      "default"
+      "default",
+      "theme/alphaleonis"
     ],
     "postProcessors": [],
     "markdownEngineName": "markdig",

@@ -12,3 +12,7 @@ This is a class that can be used to parse, deconstruct and modify a .NET type na
 
 Class providing some basic information about an assembly file, such as it's name, references, target
 framework version and more, without the need to load it into the appdomain with the `Assembly.ReflectionOnlyLoad` api.
+
+### [StrongNameKeyPairGenerator](xref:Alphaleonis.Reflection.Metadata.StrongNameKeyPairGenerator)
+
+Utility that can be used to create a strong name key pair file (.snk).
