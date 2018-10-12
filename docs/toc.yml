@@ -1,4 +1,6 @@
 - name: API Reference
   href: api/
   topicUid: Alphaleonis.Reflection.Metadata
+- name: GitHub
+  href: https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata
   
