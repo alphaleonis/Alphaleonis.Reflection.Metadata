@@ -4,6 +4,7 @@
 **Alphaleonis.Reflection.Metadata** is a small utility library containing classes and methods for working with 
 .NET assemblies and their metadata. 
 
+[See the documentation](https://alphaleonis.github.io/Alphaleonis.Reflection.Metadata/) for more information.
 
 ### TypeIdentifier
 
