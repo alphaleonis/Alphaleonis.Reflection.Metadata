@@ -145,17 +145,17 @@ references:
   commentId: T:Alphaleonis.Reflection.Metadata.MetadataReaderExtensions
   fullName: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions
   nameWithType: MetadataReaderExtensions
-- uid: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(MetadataReader,AssemblyDefinition)
+- uid: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(System.Reflection.Metadata.MetadataReader,System.Reflection.Metadata.AssemblyDefinition)
   name: ParseAssemblyName(MetadataReader, AssemblyDefinition)
-  href: api/Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.html#Alphaleonis_Reflection_Metadata_MetadataReaderExtensions_ParseAssemblyName_MetadataReader_AssemblyDefinition_
-  commentId: M:Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(MetadataReader,AssemblyDefinition)
-  fullName: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(MetadataReader, AssemblyDefinition)
+  href: api/Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.html#Alphaleonis_Reflection_Metadata_MetadataReaderExtensions_ParseAssemblyName_System_Reflection_Metadata_MetadataReader_System_Reflection_Metadata_AssemblyDefinition_
+  commentId: M:Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(System.Reflection.Metadata.MetadataReader,System.Reflection.Metadata.AssemblyDefinition)
+  fullName: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(System.Reflection.Metadata.MetadataReader, System.Reflection.Metadata.AssemblyDefinition)
   nameWithType: MetadataReaderExtensions.ParseAssemblyName(MetadataReader, AssemblyDefinition)
-- uid: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(MetadataReader,AssemblyReference)
+- uid: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(System.Reflection.Metadata.MetadataReader,System.Reflection.Metadata.AssemblyReference)
   name: ParseAssemblyName(MetadataReader, AssemblyReference)
-  href: api/Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.html#Alphaleonis_Reflection_Metadata_MetadataReaderExtensions_ParseAssemblyName_MetadataReader_AssemblyReference_
-  commentId: M:Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(MetadataReader,AssemblyReference)
-  fullName: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(MetadataReader, AssemblyReference)
+  href: api/Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.html#Alphaleonis_Reflection_Metadata_MetadataReaderExtensions_ParseAssemblyName_System_Reflection_Metadata_MetadataReader_System_Reflection_Metadata_AssemblyReference_
+  commentId: M:Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(System.Reflection.Metadata.MetadataReader,System.Reflection.Metadata.AssemblyReference)
+  fullName: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName(System.Reflection.Metadata.MetadataReader, System.Reflection.Metadata.AssemblyReference)
   nameWithType: MetadataReaderExtensions.ParseAssemblyName(MetadataReader, AssemblyReference)
 - uid: Alphaleonis.Reflection.Metadata.MetadataReaderExtensions.ParseAssemblyName*
   name: ParseAssemblyName
