@@ -4,12 +4,14 @@
       "src": [
         {
           "files": [
-            "src/**.csproj"
-          ],
-          "cwd": "..",
-          "TargetFramework": "netstandard20"
+            "src/**/*.csproj"
+          ],          
+          "cwd": ".."
         }
       ],
+      "properties": {
+        "TargetFramework": "net471"
+      },
       "dest": "api",
       "disableGitFeatures": false,
       "disableDefaultFilter": false
@@ -62,8 +64,7 @@
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
-      "default",
-      "theme/alphaleonis"
+      "default"
     ],
     "postProcessors": [],
     "markdownEngineName": "markdig",
