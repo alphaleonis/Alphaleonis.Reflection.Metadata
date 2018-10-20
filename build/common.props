@@ -28,15 +28,16 @@
     <LangVersion>7.2</LangVersion>
     
     <Major>0</Major>
-    <Minor>2</Minor>
-    <Revision>1</Revision>
+    <Minor>3</Minor>
+    <Revision>0</Revision>
 
     <BuildNumber Condition=" '$(APPVEYOR_BUILD_NUMBER)' != '' ">$(APPVEYOR_BUILD_NUMBER)</BuildNumber>
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
-    
-    <PrereleaseLabel Condition="'$(APPVEYOR_REPO_BRANCH)' != 'master'">-dev-$(CurrentDate)</PrereleaseLabel>
 
-    <AssemblyVersion>$(Major).$(Minor).$(Revision).0</AssemblyVersion>
+     <PrereleaseLabel Condition="'$(Major)' == '0'">alpha</PrereleaseLabel>
+     <PrereleaseLabel Condition="'$(APPVEYOR_REPO_BRANCH)' != 'master'">-dev-$(CurrentDate)</PrereleaseLabel>
+     
+     <AssemblyVersion>$(Major).$(Minor).$(Revision).0</AssemblyVersion>
     <AssemblyFileVersion>$(Major).$(Minor).$(Revision).$(BuildNumber)</AssemblyFileVersion>
     <InformationalVersion>$(Major).$(Minor).$(Revision).$(BuildNumber)$(PrereleaseLabel)</InformationalVersion>
     <PackageVersion>$(Major).$(Minor).$(Revision)$(PrereleaseLabel)</PackageVersion>
