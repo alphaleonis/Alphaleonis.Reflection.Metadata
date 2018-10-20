@@ -30,12 +30,13 @@
     <Major>0</Major>
     <Minor>3</Minor>
     <Revision>0</Revision>
-
+    <Prerelease>alpha</Prerelease>
+     
     <BuildNumber Condition=" '$(APPVEYOR_BUILD_NUMBER)' != '' ">$(APPVEYOR_BUILD_NUMBER)</BuildNumber>
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
 
-     <PrereleaseLabel Condition="'$(Major)' == '0'">alpha</PrereleaseLabel>
-     <PrereleaseLabel Condition="'$(APPVEYOR_REPO_BRANCH)' != 'master'">-dev-$(CurrentDate)</PrereleaseLabel>
+     <PrereleaseLabel Condition="'$(Prerelease)' != ''">-$(Prerelease)</PrereleaseLabel>
+     <PrereleaseLabel Condition="'$(PrereleaseLabel)' == '' and '$(APPVEYOR_REPO_BRANCH)' != 'master'">-dev-$(CurrentDate)</PrereleaseLabel>
      
      <AssemblyVersion>$(Major).$(Minor).$(Revision).0</AssemblyVersion>
     <AssemblyFileVersion>$(Major).$(Minor).$(Revision).$(BuildNumber)</AssemblyFileVersion>
