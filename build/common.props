@@ -6,7 +6,7 @@
     <Authors>Alphaleonis</Authors>
     <Copyright>Copyright (C) Peter Palotas</Copyright>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageLicenseUrl>https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageLicenseUrl>https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/alphaleonis/Alphaleonis.Reflection.Metadata/</PackageProjectUrl>
     <!-- <PackageIconUrl>http://alphaleonis.com/img/AlphaFS-icon.png</PackageIconUrl> -->
     <PackageOutputPath>../../artifacts</PackageOutputPath>    
@@ -29,7 +29,7 @@
     
     <Major>0</Major>
     <Minor>3</Minor>
-    <Revision>0</Revision>
+    <Revision>1</Revision>
     <Prerelease>alpha</Prerelease>
      
     <BuildNumber Condition=" '$(APPVEYOR_BUILD_NUMBER)' != '' ">$(APPVEYOR_BUILD_NUMBER)</BuildNumber>
