@@ -113,7 +113,7 @@ namespace Alphaleonis.Reflection.Metadata
       {
          using (MemoryStream stream = new MemoryStream(rawAssembly, false))
          {
-            return GetAssemblyInfo(rawAssembly);
+            return GetAssemblyInfo(stream);
          }
       }
 
